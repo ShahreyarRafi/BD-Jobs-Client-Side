@@ -75,10 +75,10 @@ const Navbar = () => {
                     }
                     id="example-navbar-danger"
                 >
-                    <div className='w-full flex justify-between items-center mt-5 lg:mt-0 mb-2 lg:mb-0'>
+                    <div className='w-full flex justify-between items-start lg:items-center mt-5 lg:mt-0 mb-2 lg:mb-0'>
                         <div>
-                            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto gap-3 xl:gap-5">
-                                <li className="nav-item px-1 xl:px-3 py-2 flex items-center text-sm xl:text-base uppercase font-semibold  text-black dark:text-white duration-300 hover:opacity-75">
+                            <ul className="flex flex-col lg:flex-row items-start list-none lg:ml-auto gap-3 xl:gap-5">
+                                <li className="nav-item px-1 xl:px-3 py-2 flex text-sm xl:text-base uppercase font-semibold  text-black dark:text-white duration-300 hover:opacity-75">
                                     <NavLink
                                         to="/"
                                         className={({ isActive, isPending }) =>
@@ -116,7 +116,7 @@ const Navbar = () => {
 
                                 {!user && (
                                     <li>
-                                        <ul className="flex items-center gap-2 md:gap-5">
+                                        <ul className="flex lg:items-center justify-center items-end flex-col lg:flex-row list-none lg:ml-auto gap-3 xl:gap-5">
                                             <li className="nav-item px-1 xl:px-3 py-2 flex items-center text-sm xl:text-base uppercase font-semibold text-black dark:text-white duration-300 hover:opacity-75">
                                                 <NavLink
                                                     to="/login"

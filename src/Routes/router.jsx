@@ -57,15 +57,27 @@ const router = createBrowserRouter([
             },
             {
                 path: 'add-a-job',
-                element: <AddAJobPage></AddAJobPage>
+                element: (
+                    <PrivateRoute>
+                        <AddAJobPage></AddAJobPage>
+                    </PrivateRoute>
+                ),
             },
             {
                 path: 'my-jobs',
-                element: <MyJobsPage></MyJobsPage>
+                element: (
+                    <PrivateRoute>
+                        <MyJobsPage></MyJobsPage>
+                    </PrivateRoute>
+                ),
             },
             {
                 path: 'applied-jobs',
-                element: <AppliedJobPage></AppliedJobPage>
+                element: (
+                    <PrivateRoute>
+                        <AppliedJobPage></AppliedJobPage>
+                    </PrivateRoute>
+                ),
             },
             {
                 path: 'cart',
