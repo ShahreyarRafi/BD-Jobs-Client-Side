@@ -48,11 +48,11 @@ const Navbar = () => {
     }, [theme]);
 
     return (
-        <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 font-primary bg-slate-100 dark:bg-black duration-300">
+        <nav className="relative flex flex-wrap items-center justify-between px-2 py-1 font-primary bg-slate-100 dark:bg-black duration-300">
             <div className="w-full px-1 md:px-7 mx-auto flex flex-wrap items-center justify-between">
                 <div className="w-full relative flex items-center justify-between lg:w-auto lg:static lg:block lg:justify-start">
                     <div className='flex items-center gap-4 mr-5'>
-                        <img className='w-[72px]' src={logo} alt="" />
+                        <img className='w-16 mb-5' src={logo} alt="" />
                         <a
                             className="text-xl xl:text-2xl 2xl:text-3xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-black dark:text-white duration-300"
                             href="/"

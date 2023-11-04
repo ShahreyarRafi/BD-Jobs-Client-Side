@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 const WhyUs = () => {
@@ -34,10 +33,11 @@ const WhyUs = () => {
                             </div>
                         </div>
                         <h2 className="uppercase mt-6 text-indigo-500 font-bold mb-3">
-                            Wide range of brands
+                            Unmatched Job Listings
                         </h2>
                         <p className="text-sm dark:text-gray-100 text-gray-700 dark:font-normal font-medium mb-3">
-                            We can help with your financing plan, we can offer some tips and tricks. Drive off with this dream car of yours regardless of your credit history.                    </p>
+                            BD Jobs is your one-stop platform for accessing a wide range of job opportunities in Bangladesh. We bring you an extensive database of job listings ensuring that you find the ideal position that matches your skills and ambitions.
+                        </p>
                         <Link to={'/about-us'}>
                             <a className="text-indigo-500 flex items-center justify-center hover:text-indigo-600 dark:font-normal font-medium">
                                 More about us
@@ -74,10 +74,11 @@ const WhyUs = () => {
                             </div>
                         </div>
                         <h2 className="uppercase mt-6 text-green-500 font-bold mb-3">
-                            Trusted by our clients
+                            Local Expertise
                         </h2>
                         <p className="text-sm dark:text-gray-100 text-gray-700 dark:font-normal font-medium mb-3">
-                            We can help with your financing plan, we can offer some tips and tricks. Drive off with this dream car of yours regardless of your credit history.                    </p>
+                            Our platform is deeply rooted in the intricate dynamics of the Bangladeshi job market, ensuring that you receive valuable insights and guidance throughout your job search journey, helping you make informed decisions about your career path.
+                        </p>
                         <Link to={'/about-us'}>
                             <a className="text-green-500 flex items-center justify-center hover:text-green-600 dark:font-normal font-medium">
                                 More about us
@@ -114,10 +115,11 @@ const WhyUs = () => {
                             </div>
                         </div>
                         <h2 className="uppercase mt-6 text-red-500 font-bold mb-3">
-                            Fast & easy financing
+                            Personalized Job Alerts
                         </h2>
                         <p className="text-sm dark:text-gray-100 text-gray-700 dark:font-normal font-medium mb-3">
-                            We can help with your financing plan, we can offer some tips and tricks. Drive off with this dream car of yours regardless of your credit history.                    </p>
+                            Our platform is deeply rooted in the intricate dynamics of the Bangladeshi job market, ensuring that you receive valuable insights and guidance throughout your job search journey, helping you make informed decisions about your career path.
+                        </p>
                         <Link to={'/about-us'}>
                             <a className="text-red-500 flex items-center justify-center hover:text-red-600 dark:font-normal font-medium">
                                 More about us
