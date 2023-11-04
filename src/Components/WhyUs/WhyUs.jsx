@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const WhyUs = () => {
     return (
-        <div className='font-primary dark:bg-[#090b11] bg-white duration-300 py-7'>
+        <div className='font-primary dark:bg-[#090b11] bg-white duration-300 py-10'>
             <div className="p-8">
                 <div className="flex flex-col items-center justify-center">
                     <span className="rounded-full bg-[#91C96F] px-2 py-1 text-white uppercase text-sm">
@@ -32,10 +32,10 @@ const WhyUs = () => {
                                 </svg>
                             </div>
                         </div>
-                        <h2 className="uppercase mt-6 text-indigo-500 font-bold mb-3">
+                        <h2 className="text-lg uppercase mt-6 text-indigo-500 font-bold mb-3">
                             Unmatched Job Listings
                         </h2>
-                        <p className="text-sm dark:text-gray-100 text-gray-700 dark:font-normal font-medium mb-3">
+                        <p className="dark:text-gray-100 text-gray-700 dark:font-normal font-medium mb-3">
                             BD Jobs is your one-stop platform for accessing a wide range of job opportunities in Bangladesh. We bring you an extensive database of job listings ensuring that you find the ideal position that matches your skills and ambitions.
                         </p>
                         <Link to={'/about-us'}>
@@ -73,10 +73,10 @@ const WhyUs = () => {
                                 </svg>
                             </div>
                         </div>
-                        <h2 className="uppercase mt-6 text-green-500 font-bold mb-3">
+                        <h2 className="text-lg uppercase mt-6 text-green-500 font-bold mb-3">
                             Local Expertise
                         </h2>
-                        <p className="text-sm dark:text-gray-100 text-gray-700 dark:font-normal font-medium mb-3">
+                        <p className="dark:text-gray-100 text-gray-700 dark:font-normal font-medium mb-3">
                             Our platform is deeply rooted in the intricate dynamics of the Bangladeshi job market, ensuring that you receive valuable insights and guidance throughout your job search journey, helping you make informed decisions about your career path.
                         </p>
                         <Link to={'/about-us'}>
@@ -114,10 +114,10 @@ const WhyUs = () => {
                                 </svg>
                             </div>
                         </div>
-                        <h2 className="uppercase mt-6 text-red-500 font-bold mb-3">
+                        <h2 className="text-lg uppercase mt-6 text-red-500 font-bold mb-3">
                             Personalized Job Alerts
                         </h2>
-                        <p className="text-sm dark:text-gray-100 text-gray-700 dark:font-normal font-medium mb-3">
+                        <p className="dark:text-gray-100 text-gray-700 dark:font-normal font-medium mb-3">
                             Our platform is deeply rooted in the intricate dynamics of the Bangladeshi job market, ensuring that you receive valuable insights and guidance throughout your job search journey, helping you make informed decisions about your career path.
                         </p>
                         <Link to={'/about-us'}>
