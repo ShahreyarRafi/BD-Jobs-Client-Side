@@ -18,6 +18,13 @@ const Footer = () => {
                             BD JOBS
                         </a>
                     </div>
+                    <div className='text-lg mb-6 font-semibold text-black dark:text-white duration-300'>
+                        <ul className='flex items-center gap-5'>
+                            <Link to={'/contact-us'}><li>Contact US</li></Link>
+                            <Link to={'/blogs'}><li>Blogs</li></Link>
+                            <Link to={'/about-us'}><li>About US</li></Link>
+                        </ul>
+                    </div>
                     <div className="container">
                         <div className="mb-6 flex justify-center">
                             <a
@@ -119,13 +126,7 @@ const Footer = () => {
                             </a>
                         </div>
                     </div>
-                    <div className='text-lg mb-6 font-semibold text-black dark:text-white duration-300'>
-                        <ul className='flex items-center gap-5'>
-                            <Link to={'/contact-us'}><li>Contact US</li></Link>
-                            <Link to={'/blogs'}><li>Blogs</li></Link>
-                            <Link to={'/about-us'}><li>About US</li></Link>
-                        </ul>
-                    </div>
+                    
                     <div className=' text-black dark:text-white duration-300'>
                         <p>New York, 94126, United States</p>
                         <p>+ 01 234 567 89</p>
