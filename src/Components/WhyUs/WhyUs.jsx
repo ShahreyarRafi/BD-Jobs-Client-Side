@@ -5,7 +5,7 @@ const WhyUs = () => {
         <div className='font-primary dark:bg-[#090b11] bg-white duration-300 py-7'>
             <div className="p-8">
                 <div className="flex flex-col items-center justify-center">
-                    <span className="rounded-full bg-[#FF9D00] px-2 py-1 dark:text-white text-black uppercase text-sm">
+                    <span className="rounded-full bg-[#91C96F] px-2 py-1 text-white uppercase text-sm">
                         Insight
                     </span>
                 </div>

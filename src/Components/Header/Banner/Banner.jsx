@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './Banner.css';
-import images from './images'; 
+import images from './images';
 
 
 
@@ -22,7 +22,7 @@ const Banner = () => {
                 setCurrentImageIndex((prevIndex) => getNextIndex(prevIndex));
                 setIsFadingOut(false);
                 setIsFadingIn(true);
-            }, 500); 
+            }, 500);
         }, 7000);
 
         return () => clearInterval(intervalId);
@@ -32,13 +32,13 @@ const Banner = () => {
         if (isFadingIn) {
             const fadeTimeout = setTimeout(() => {
                 setIsFadingIn(false);
-            }, 1000); 
+            }, 1000);
 
             return () => clearTimeout(fadeTimeout);
         }
     }, [isFadingIn]);
 
-    const scrollOffset = 300; 
+    const scrollOffset = 300;
 
     const handleExploreClick = () => {
         const windowHeight = window.innerHeight;
@@ -54,21 +54,21 @@ const Banner = () => {
                         <div className={`image-wrapper ${isFadingOut && index === currentImageIndex ? 'fade-out' : ''} ${isFadingIn && index === currentImageIndex ? 'fade-in' : ''}`}>
                             <img
                                 src={image}
-                                className={`w-full object-cover md:h-full md:w-full h-96 opacity-60 ${index === currentImageIndex ? 'zoom-in' : ''}`}
+                                className={`w-full object-cover md:h-full md:w-full h-96 opacity-70 dark:opacity-40 duration-300 ${index === currentImageIndex ? 'zoom-in' : ''}`}
                                 alt={`Image ${index}`}
                             />
                         </div>
                         <div className="absolute flex justify-center transform -translate-y-1/2 left-5 right-5 top-1/2">
                             <div className="flex flex-col items-center justify-center h-[88vh]">
-                                <h2 className="xl:text-7xl md:text-5xl text-3xl tracking-tigh font-primary font-bold text-white text-center md:leading-[1.2] drop-shadow-lg shadow-black mb-8">
-                                    Find Your <span className="text-[#FF9D00]">Perfect</span> Car
+                                <h2 className="xl:text-6xl md:text-4xl text-3xl font-primary font-bold text-white text-center md:leading-[1.2] drop-shadow-lg shadow-black mb-12">
+                                    Discover Your Dream <span className='text-[#91C96F]'>Career</span> with BD Jobs <br />
                                 </h2>
                                 <div>
                                     <button
-                                        className="bg-[#FF9D00] font-primary font-medium md:text-lg text-white md:px-12 px-7 md:py-4 py-2 btn-shape"
+                                        className="bg-[#91C96F] font-primary font-semibold md:text-xl text-white md:px-12 px-7 md:py-4 py-2 btn-shape rounded"
                                         onClick={handleExploreClick}
                                     >
-                                        Explore!
+                                        Lets Go!
                                     </button>
                                 </div>
                             </div>
