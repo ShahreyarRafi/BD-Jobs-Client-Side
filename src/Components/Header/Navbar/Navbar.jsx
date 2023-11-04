@@ -6,6 +6,10 @@ import profile from '../../../assets/images/userIconWhite.png';
 import profileDark from '../../../assets/images/userIconBlack.png';
 import { AuthContext } from "../../../services/Firebase/AuthProvider";
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip'
+
+
 
 
 
@@ -195,23 +199,31 @@ const Navbar = () => {
                                                 >
                                                     <summary>
                                                         {user.photoURL ? (
-                                                            <img
-                                                                src={user.photoURL}
-                                                                alt="Profile"
-                                                                className="h-9 w-9 rounded-full"
-                                                            />
+                                                            <>
+                                                                <img
+                                                                    src={user.photoURL}
+                                                                    alt="Profile"
+                                                                    className="h-9 w-9 rounded-full"
+                                                                    data-tooltip-id="profilePic-tooltip" data-tooltip-content={user.displayName}
+                                                                />
+                                                                <Tooltip id="profilePic-tooltip" />
+                                                            </>
+
                                                         ) : (
                                                             <>
                                                                 <img
                                                                     src={profile}
                                                                     alt="Placeholder"
                                                                     className="h-9 w-9 dark:block hidden"
+                                                                    data-tooltip-id="placeholder-icon-tooltip" data-tooltip-content={user.displayName}
                                                                 />
                                                                 <img
                                                                     src={profileDark}
                                                                     alt="Placeholder"
                                                                     className="h-9 w-9 dark:hidden block"
+                                                                    data-tooltip-id="placeholder-icon-tooltip" data-tooltip-content={user.displayName}
                                                                 />
+                                                                <Tooltip id="placeholder-icon-tooltip" />
                                                             </>
                                                         )}
 
