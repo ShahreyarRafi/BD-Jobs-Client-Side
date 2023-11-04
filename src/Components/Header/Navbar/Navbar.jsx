@@ -127,7 +127,7 @@ const Navbar = () => {
                                                     LOGIN
                                                 </NavLink>
                                             </li>
-                                            <li className="nav-item px-1 xl:px-3 py-2 flex items-center text-sm xl:text-base uppercase font-semibold  text-black dark:text-white duration-300 hover:opacity-75">
+                                            <li className="nav-item px-1 xl:px-3 py-2 lg:mr-5 flex items-center text-sm xl:text-base uppercase font-semibold  text-black dark:text-white duration-300 hover:opacity-75">
                                                 <NavLink
                                                     to="/register"
                                                     className={({ isActive, isPending }) =>
@@ -141,39 +141,43 @@ const Navbar = () => {
                                     </li>
                                 )}
 
-                                <a className="nav-item px-1 xl:px-3 py-2 flex items-center text-sm xl:text-base uppercase font-semibold  text-black dark:text-white duration-300 hover:opacity-75">
-                                    <NavLink
-                                        to="/add-a-job"
-                                        className={({ isActive, isPending }) =>
-                                            isPending ? "pending" : isActive ? "text-[#91C96F]" : ""
-                                        }
-                                    >
-                                        ADD A JOB
-                                    </NavLink>
-                                </a>
-                                <a className="nav-item px-1 xl:px-3 py-2 flex items-center text-sm xl:text-base uppercase font-semibold  text-black dark:text-white duration-300 hover:opacity-75">
-                                    <NavLink
-                                        to="/my-jobs"
-                                        className={({ isActive, isPending }) =>
-                                            isPending ? "pending" : isActive ? "text-[#91C96F]" : ""
-                                        }
-                                    >
-                                        MY JOBS
-                                    </NavLink>
-                                </a>
-                                <a className="nav-item px-1 xl:px-3 py-2 lg:mr-5 flex items-center text-sm xl:text-base uppercase font-semibold  text-black dark:text-white duration-300 hover:opacity-75">
-                                    <NavLink
-                                        to="/applied-jobs"
-                                        className={({ isActive, isPending }) =>
-                                            isPending ? "pending" : isActive ? "text-[#91C96F]" : ""
-                                        }
-                                    >
-                                        APPLIED JOBS
-                                    </NavLink>
-                                </a>
+                                {user && (
+                                    <ul className='flex lg:items-center justify-center items-end flex-col lg:flex-row list-none lg:ml-auto gap-3 xl:gap-5'>
+                                        <a className="nav-item px-1 xl:px-3 py-2 flex items-center text-sm xl:text-base uppercase font-semibold  text-black dark:text-white duration-300 hover:opacity-75">
+                                            <NavLink
+                                                to="/add-a-job"
+                                                className={({ isActive, isPending }) =>
+                                                    isPending ? "pending" : isActive ? "text-[#91C96F]" : ""
+                                                }
+                                            >
+                                                ADD A JOB
+                                            </NavLink>
+                                        </a>
+                                        <a className="nav-item px-1 xl:px-3 py-2 flex items-center text-sm xl:text-base uppercase font-semibold  text-black dark:text-white duration-300 hover:opacity-75">
+                                            <NavLink
+                                                to="/my-jobs"
+                                                className={({ isActive, isPending }) =>
+                                                    isPending ? "pending" : isActive ? "text-[#91C96F]" : ""
+                                                }
+                                            >
+                                                MY JOBS
+                                            </NavLink>
+                                        </a>
+                                        <a className="nav-item px-1 xl:px-3 py-2 lg:mr-5 flex items-center text-sm xl:text-base uppercase font-semibold  text-black dark:text-white duration-300 hover:opacity-75">
+                                            <NavLink
+                                                to="/applied-jobs"
+                                                className={({ isActive, isPending }) =>
+                                                    isPending ? "pending" : isActive ? "text-[#91C96F]" : ""
+                                                }
+                                            >
+                                                APPLIED JOBS
+                                            </NavLink>
+                                        </a>
+                                    </ul>
+                                )}
 
                                 <li className='flex items-center gap-3 lg:gap-6'>
-                                    
+
                                     <div className=" flex rounded-full text-black dark:text-white duration-300">
                                         <DarkModeSwitch
                                             checked={theme}
