@@ -61,7 +61,7 @@ const Login = () => {
                     <div className="h-full">
                         <div className="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
                             <div className="w-full">
-                                <div className="block bg-slate-100 border-b border-b-neutral-200 dark:bg-[#1d1b1d]">
+                                <div className="block bg-slate-100 border-b border-b-neutral-200 dark:border-0 dark:bg-[#19191b]">
                                     <div className="g-0 lg:flex lg:flex-wrap">
                                         <div className="px-4 md:px-0 lg:w-6/12">
                                             <div className="md:mx-6 md:p-12">
@@ -81,7 +81,7 @@ const Login = () => {
                                                         <input
                                                             type="email"
                                                             onChange={(event) => setEmail(event.target.value)}
-                                                            className="bg-slate-200 dark:bg-zinc-800 rounded text-white peer block min-h-[auto] w-full border border-stone-20 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                                            className="bg-slate-200 dark:bg-zinc-800 rounded text-white peer block min-h-[auto] w-full border border-stone-200 dark:border-zinc-700 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                                             id="exampleFormControlInput1"
                                                             placeholder="Email" />
                                                         <label
@@ -94,7 +94,7 @@ const Login = () => {
                                                         <input
                                                             type="password"
                                                             onChange={(event) => setPassword(event.target.value)}
-                                                            className="bg-slate-200 dark:bg-zinc-800 rounded border border-stone-200 text-white peer block min-h-[auto] w-full bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                                            className="bg-slate-200 dark:bg-zinc-800 rounded border border-stone-200 dark:border-zinc-700  text-white peer block min-h-[auto] w-full bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                                             id="exampleFormControlInput11"
                                                             placeholder="Password" />
                                                         <label
@@ -123,7 +123,7 @@ const Login = () => {
                                                             <button
                                                                 type='button'
                                                                 onClick={handleGoogle}
-                                                                className=" px-4 py-2 border-2 flex gap-2 rounded border-slate-300 text-neutral-500 hover:border-slate-500 hover:text-neutral-500 hover:shadow transition duration-150">
+                                                                className=" px-4 py-2 border-2 flex gap-2 rounded border-slate-300 dark:border-zinc-600 text-neutral-500 dark:text-neutral-300 hover:border-slate-500 hover:text-neutral-500 hover:shadow transition duration-150">
                                                                 <img className="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy" alt="google logo" />
                                                                 <span>Login with Google</span>
                                                             </button>
@@ -136,7 +136,7 @@ const Login = () => {
                                                         <Link to={`/register`}>
                                                             <button
                                                                 type="button"
-                                                                className="text-black dark:text-neutral-100 duration-300 rounded inline-block border-2 border-slate-300 border-danger px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-danger transition ease-in-out hover:border-danger-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-danger-600 focus:border-danger-600 focus:text-danger-600 focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+                                                                className="text-black dark:text-neutral-100 duration-300 rounded inline-block border-2 border-slate-300 dark:border-zinc-600 border-danger px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-danger transition ease-in-out hover:border-danger-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-danger-600 focus:border-danger-600 focus:text-danger-600 focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
                                                                 data-te-ripple-init
                                                                 data-te-ripple-color="light">
                                                                 Register
