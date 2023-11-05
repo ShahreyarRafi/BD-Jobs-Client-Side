@@ -1,10 +1,14 @@
 
+import { useLoaderData } from 'react-router-dom';
 import AllJobs from '../../Components/AllJobs/AllJobs';
 
 const AllJobsPage = () => {
+
+    const allJobs = useLoaderData()
+
     return (
         <div>
-            <AllJobs></AllJobs>
+            <AllJobs allJobs={allJobs} ></AllJobs>
         </div>
     );
 };

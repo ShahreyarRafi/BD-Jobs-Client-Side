@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { IoPersonOutline } from 'react-icons/io5';
+import { PiBriefcaseLight } from 'react-icons/pi';
+import { PiCalendarPlusLight } from 'react-icons/pi';
+import { PiCalendarCheckLight } from 'react-icons/pi';
+import { BsCheck2Square } from 'react-icons/bs';
+
 
 let tabs = [
     { id: "All", label: "All Jobs" },
@@ -23,8 +29,9 @@ const Jobs = ({ allJobs }) => {
     const jobsInCurrentTab = allJobs.filter(job => activeTab === "All" ? true : job.job_category === activeTab);
 
     return (
-        <div className="flex flex-col items-center justify-center py-10">
-            <div className="flex space-x-1">
+        <div className="flex flex-col items-center justify-center py-10 bg-[#19a4630c] font-primary">
+            <h1 className="text-5xl font-bold mb-10 mt-5"><span className="">Explore job by </span><span className="text-[#19a463]">Categories</span></h1>
+            <div className="flex space-x-1 mb-2">
                 {tabs.map((tab) => (
                     <button
                         key={tab.id}
@@ -41,7 +48,7 @@ const Jobs = ({ allJobs }) => {
                         {activeTab === tab.id && (
                             <motion.span
                                 layoutId="bubble"
-                                className="absolute inset-0 z-10 bg-[#91C96F] mix-blend-multiply"
+                                className="absolute inset-0 z-10 bg-[#19a4637e] mix-blend-multiply"
                                 style={{ borderRadius: 9999 }}
                                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                             />
@@ -51,43 +58,29 @@ const Jobs = ({ allJobs }) => {
                 ))}
             </div>
 
-            <div className="max-w-[1700px] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 py-10 px-10 mx-auto">
+            <div className="max-w-[1700px] w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 py-10 px-10 mx-auto">
                 {jobsInCurrentTab
                     .slice(0, showAllJobs ? jobsInCurrentTab.length : 4) // Conditionally slice based on showAllJobs state
                     .map((job, index) => (
                         <div key={index}>
                             <div key={job._id}>
-                                <div className=" font-primary text-black dark:text-white relative bg-slate-100 dark:bg-[#1f2229] rounded-lg drop-shadow-lg ">
-                                    <div className="price-tag-shape absolute font-bold top-0 left-0 bg-[#91C96F] text-black dark:text-white py-2 px-4 z-10 flex items-center shadow-xl rounded-tl-lg">
-                                        <span>Applied: {job.applicants_number}</span>
+                                <div className="drop-shadow-sm md:hover:scale-105 duration-300">
+                                    <div className="bg-white w-full p-10 border-b-2 border-slate-100">
+                                        <img className="h-12 mb-3" src={job.company_logo} alt="" />
+                                        <h2 className="text-base mb-5 truncate flex items-center"> <span className="mr-2"><IoPersonOutline /></span> <span className="font-medium mr-2">Posted by:</span> {job.posted_by}</h2>
+                                        <h2 className="text-2xl font-bold mb-5 max-w-sm truncate flex items-center"> <span></span>{job.job_title}</h2>
+                                        <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><PiBriefcaseLight /></span> <span className="font-medium mr-2">Job Category: </span> {job.job_category}</h2>
+                                        <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><PiCalendarPlusLight /></span> <span className="font-medium mr-2"> Posting Date:</span> {job.job_posting_date}</h2>
+                                        <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><PiCalendarCheckLight /></span> <span className="font-medium mr-2">Application Deadline:</span> {job.application_deadline}</h2>
+                                        <h2 className="text-base mb-4 truncate flex items-center"> <span className="mr-2"><BsCheck2Square /></span> <span className="font-medium mr-2">Job Applicants:</span> {job.applicants_number}</h2>
+                                        <h2 className="text-xl font-semibold truncate flex items-center">{job.salary_range}</h2>
                                     </div>
-                                    <div>
-                                        <figure className="relative overflow-hidden rounded-t-lg">
-                                            <img
-                                                className='transform hover:scale-110 transition-transform duration-1000 object-cover h-96 w-full'
-                                                style={{ transformOrigin: 'center center' }}
-                                                src={job.card_image}
-                                                alt=''
-                                            />
-                                        </figure>
-                                    </div>
-                                    <div>
-                                        <div className="py-2 px-4 my-1">
-                                            <h2 className="text-xl font-semibold truncate mb-2">{job.job_title}</h2>
-                                            <h2 className="text-sm truncate mb-1"><span className="font-medium">Posted By: </span>{job.posted_by}</h2>
-                                            <h2 className="text-sm truncate mb-1"><span className="font-medium">Posted: </span>{job.job_posting_date}</h2>
-                                            <h2 className="text-sm truncate mb-2"><span className="font-medium">Deadline: </span>{job.application_deadline}</h2>
-                                            <h5 className='text-lg font-semibold truncate mb-1'>{job.salary_range}</h5>
-                                        </div>
-                                        <div className="card-actions justify-center border-t border-[#dbdcdd] dark:border-[#353a4a]">
-                                            <Link >
-                                                <button
-                                                    className='font-primary text-sm font-medium hover:text-[#91C96F] duration-300 text-star px-7 py-3 w-full'>
-                                                    SHOW DETAILS
-                                                </button>
-                                            </Link>
-                                        </div>
-                                    </div>
+                                    <Link >
+                                        <button
+                                            className='font-primary text-sm font-medium px-7 py-3 w-full bg-white hover:text-[#91C96F] duration-300 '>
+                                            SHOW DETAILS
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +92,7 @@ const Jobs = ({ allJobs }) => {
                 <div className="flex justify-center mt-4">
                     <button
                         onClick={toggleShowAllJobs}
-                        className="bg-[#91C96F] font-primary font-semibold text- text-white md:px-12 px-7 md:py-4 py-2 rounded">
+                        className="bg-[#19a4639f] hover:bg-[#19a463bb] font-primary font-semibold text- text-white md:px-12 px-7 md:py-4 py-2 rounded">
                         {showAllJobs ? "Show Less" : "Show All"}
                     </button>
                 </div>

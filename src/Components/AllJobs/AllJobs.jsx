@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import cardTestImg from '../../assets/images/cardTest.png'
 
 
-const AllJobs = () => {
+const AllJobs = ({allJobs}) => {
+    console.log(allJobs);
     return (
         <div className="h-[90vh] flex items-center justify-center">
             <div className=" font-primary text-black dark:text-white relative bg-slate-100 dark:bg-[#1f2229] rounded-lg drop-shadow-lg w-96">
