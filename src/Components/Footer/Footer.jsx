@@ -134,7 +134,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div
-                        className="w-full p-4 font-primary text-sm text-center text-black dark:text-white bg-[#e3e9f1] dark:bg-black duration-300">
+                        className="w-full p-4 font-primary text-sm text-center text-black dark:text-white bg-[#e3e8ee] dark:bg-black duration-300">
                         © 2023 Copyright:
                         <a className="text-black dark:text-white ml-2 duration-300" href="/">
                             BD JOBS

@@ -9,6 +9,8 @@ const Banner = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [isFadingOut, setIsFadingOut] = useState(false);
     const [isFadingIn, setIsFadingIn] = useState(false);
+    const [searchValue, setSearchValue] = useState(''); 
+
 
     const getNextIndex = useCallback(
         (currentIndex) => (currentIndex + 1) % images.length,
@@ -46,6 +48,10 @@ const Banner = () => {
         window.scrollTo({ top: targetPosition, behavior: 'smooth' });
     };
 
+    const handleInputChange = (event) => {
+        setSearchValue(event.target.value); 
+    };
+
     return (
         <div className="overflow-hidden flex justify-center items-center">
             <div className="carousel w-full object-cover">
@@ -69,7 +75,10 @@ const Banner = () => {
                                             type="text"
                                             className="bg-slate-100 dark:bg-zinc-800 text-black dark:text-white peer block min-h-[auto] w-[40vw] md:px-12 px-7 md:py-4 py-2 rounded-l border dark:border-zinc-700 border-stone-200 bg-opacity-90 leading-[1.6] outline-none transition-all duration-300 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                             id="exampleFormControlInput1"
-                                            placeholder="Search Here..." />
+                                            placeholder="Search Here..."
+                                            value={searchValue} 
+                                            onChange={handleInputChange} 
+                                        />
                                         <label
                                             htmlFor="exampleFormControlInput1"
                                             className="text-lg md:text-xl pointer-events-none absolute left-3 bottom-[6px] md:bottom-4 mb-[2px] max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-400 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
