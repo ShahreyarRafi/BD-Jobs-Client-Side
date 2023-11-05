@@ -131,7 +131,7 @@ const Login = () => {
                                                     </div>
                                                     <div className="flex items-center justify-between pb-6">
                                                         <Link to={`/register`}>
-                                                            <p className="mb-0 mr-2 text-black dark:text-neutral-100 duration-300">Don't have an account?</p>
+                                                            <p className="mb-0 mr-2 text-black dark:text-neutral-100 duration-300">Dont have an account?</p>
                                                         </Link>
                                                         <Link to={`/register`}>
                                                             <button

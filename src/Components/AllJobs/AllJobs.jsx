@@ -2,8 +2,8 @@
 
 const AllJobs = () => {
     return (
-        <div>
-            <h1>All Jobs will be shown here</h1>
+        <div className="h-[90vh] flex items-center justify-center">
+            <h1 className="text-2xl font-bold">All Jobs will be shown here</h1>
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import Logo from '/BDJobsLogo.png';
 import { Input, Ripple, initTE } from "tw-elements";
 import { AuthContext } from '../../services/Firebase/AuthProvider';
