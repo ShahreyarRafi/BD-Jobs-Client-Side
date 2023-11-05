@@ -64,16 +64,22 @@ const Jobs = ({ allJobs }) => {
                     .map((job, index) => (
                         <div key={index}>
                             <div key={job._id}>
-                                <div className="drop-shadow-sm md:hover:scale-105 duration-300">
-                                    <div className="bg-white w-full p-10 border-b-2 border-slate-100">
-                                        <img className="h-12 mb-3" src={job.company_logo} alt="" />
-                                        <h2 className="text-base mb-5 truncate flex items-center"> <span className="mr-2"><IoPersonOutline /></span> <span className="font-medium mr-2">Posted by:</span> {job.posted_by}</h2>
-                                        <h2 className="text-2xl font-bold mb-5 max-w-sm truncate flex items-center"> <span></span>{job.job_title}</h2>
-                                        <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><PiBriefcaseLight /></span> <span className="font-medium mr-2">Job Category: </span> {job.job_category}</h2>
-                                        <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><PiCalendarPlusLight /></span> <span className="font-medium mr-2"> Posting Date:</span> {job.job_posting_date}</h2>
-                                        <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><PiCalendarCheckLight /></span> <span className="font-medium mr-2">Application Deadline:</span> {job.application_deadline}</h2>
-                                        <h2 className="text-base mb-4 truncate flex items-center"> <span className="mr-2"><BsCheck2Square /></span> <span className="font-medium mr-2">Job Applicants:</span> {job.applicants_number}</h2>
-                                        <h2 className="text-xl font-semibold truncate flex items-center">{job.salary_range}</h2>
+                                <div className="w-full bg-white shadow-lg rounded-lg overflow-hidden my-1">
+                                    <div className="flex items-center px-6 py-3 bg-[#6fb696]">
+                                        <img className="h-10" src={job.company_logo} alt="" />
+                                        <h1 className="mx-3 text-white font-semibold text-lg">{job.company_name}</h1>
+                                    </div>
+                                    <div className="py-4 px-6 border-b-2 border-slate-100">
+                                        <h1 className="text-2xl font-bold mb-1 max-w-sm truncate flex items-center"> <span></span>{job.job_title}</h1>
+                                        <p className="my-2 mb-3 text-lg text-gray-700 line-clamp-2 ">{job.job_description}</p>
+                                        <div className="bg-white w-full ">
+                                            <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><IoPersonOutline /></span> <span className="font-medium mr-2">Posted by:</span> {job.posted_by}</h2>
+                                            <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><PiBriefcaseLight /></span> <span className="font-medium mr-2">Job Category: </span> {job.job_category}</h2>
+                                            <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><PiCalendarPlusLight /></span> <span className="font-medium mr-2"> Posting Date:</span> {job.job_posting_date}</h2>
+                                            <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><PiCalendarCheckLight /></span> <span className="font-medium mr-2">Application Deadline:</span> {job.application_deadline}</h2>
+                                            <h2 className="text-base mb-5 truncate flex items-center"> <span className="mr-2"><BsCheck2Square /></span> <span className="font-medium mr-2">Job Applicants:</span> {job.applicants_number}</h2>
+                                            <h2 className="text-xl font-semibold truncate flex items-center">{job.salary_range}</h2>
+                                        </div>
                                     </div>
                                     <Link >
                                         <button
