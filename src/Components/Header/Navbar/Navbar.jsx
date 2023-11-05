@@ -81,7 +81,7 @@ const Navbar = () => {
                 >
                     <div className='w-full flex justify-between items-start lg:items-center mt-5 lg:mt-0 mb-2 lg:mb-0'>
                         <div>
-                            <ul className="flex flex-col lg:flex-row items-start list-none lg:ml-auto gap-3 xl:gap-5">
+                            <ul className="flex flex-col lg:flex-row items-start list-none lg:ml-auto gap-3 lg:gap-5 mr-5">
                                 <li className="nav-item px-1 xl:px-3 py-2 flex text-sm xl:text-base uppercase font-semibold  text-black dark:text-white duration-300 hover:opacity-75">
                                     <NavLink
                                         to="/"
@@ -229,7 +229,6 @@ const Navbar = () => {
 
                                                     </summary>
                                                 </button>
-
                                                 {dropDownOpen && (
                                                     <div className="origin-top-right absolute right-0 mt-2 w-auto pr-10 rounded-md shadow-lg bg-slate-100 dark:bg-black border border-neutral-300 dark:border-gray-800 ring-1 ring-white dark:ring-black ring-opacity-5">
                                                         <ul className="py-2">

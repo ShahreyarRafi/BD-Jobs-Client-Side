@@ -50,7 +50,7 @@ const ContactUs = () => {
                                 </div>
                                 <button
                                     type="button"
-                                    className='bg-[#FF9D00] font-rubik font-semibold text-white px-14 py-4 hover:bg-[#eeb75e] w-full'>
+                                    className='bg-[#91C96F] font-rubik font-semibold text-white px-14 py-4 hover:bg-[#eeb75e] w-full'>
                                     SUBMIT
                                 </button>
                             </form>

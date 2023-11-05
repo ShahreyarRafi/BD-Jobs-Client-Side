@@ -58,18 +58,32 @@ const Banner = () => {
                                 alt={`Image ${index}`}
                             />
                         </div>
-                        <div className="absolute flex justify-center transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <div className="absolute flex justify-center transform -translate-y-1/2 left-5 right-5 top-1/2 pt-12">
                             <div className="flex flex-col items-center justify-center h-[88vh]">
-                                <h2 className="xl:text-6xl md:text-4xl text-3xl font-primary font-bold text-white text-center md:leading-[1.2] drop-shadow-lg shadow-black mb-12">
-                                    Discover Your Dream <span className='text-[#91C96F]'>Career</span> with BD Jobs <br />
+                                <h2 className="xl:text-6xl md:text-4xl text-3xl font-primary font-bold text-white text-center md:leading-[1.2] drop-shadow-lg shadow-black mb-10 md:mb-14">
+                                    Discover Your <span className='text-[#91C96F]'>Dream </span>Career with BD Jobs <br />
                                 </h2>
-                                <div>
-                                    <button
-                                        className="bg-[#91C96F] font-primary font-semibold md:text-xl text-white md:px-12 px-7 md:py-4 py-2 btn-shape rounded"
-                                        onClick={handleExploreClick}
-                                    >
-                                        Lets Go!
-                                    </button>
+                                <div className='w-full items-center flex justify-center'>
+                                    <div className="relative" data-te-input-wrapper-init>
+                                        <input
+                                            type="text"
+                                            className="bg-slate-100 dark:bg-zinc-800 text-black dark:text-white peer block min-h-[auto] w-[40vw] md:px-12 px-7 md:py-4 py-2 rounded-l border dark:border-zinc-700 border-stone-200 bg-opacity-90 leading-[1.6] outline-none transition-all duration-300 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                            id="exampleFormControlInput1"
+                                            placeholder="Search Here..." />
+                                        <label
+                                            htmlFor="exampleFormControlInput1"
+                                            className="text-lg md:text-xl pointer-events-none absolute left-3 bottom-[6px] md:bottom-4 mb-[2px] max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-400 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+                                        >Search Here...
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <button
+                                            className="bg-[#91C96F] font-primary font-semibold text-xl text-white md:px-12 px-7 md:py-4 py-2 rounded-r"
+                                            onClick={handleExploreClick}
+                                        >
+                                            Search
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
