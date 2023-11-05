@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 
 const WhyUs = () => {
     return (
@@ -16,7 +15,7 @@ const WhyUs = () => {
                         </div>
                     </div>
                 </card>
-                <card className="border-green-500 border border-dashed hover:border-double rounded  py-7 px-5">
+                <card className="border-green-500 border border-dashed hover:border-double rounded py-7 px-5">
                     <div className="grid grid-cols-6 gap-3">
                         <div className="col-span-4 text-right">
                             <p className="text-gray-700 dark:text-gray-200 font-bold">Regional Insights</p>
@@ -34,7 +33,7 @@ const WhyUs = () => {
                         </div>
                         <div className="col-span-4">
                             <p className="text-gray-700 dark:text-gray-200 font-bold">Tailored Job Notifications</p>
-                            <p className="text-gray-500 dark:text-gray-300 mt-4">Stay updated with custom job alerts, ensuring you're the first to know about job openings that align with your preferences.</p>
+                            <p className="text-gray-500 dark:text-gray-300 mt-4">Stay updated with custom job alerts, ensuring you are the first to know about job openings that align with your preferences.</p>
                         </div>
                     </div>
                 </card>
