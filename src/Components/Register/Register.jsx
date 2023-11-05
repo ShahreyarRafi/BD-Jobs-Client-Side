@@ -84,7 +84,7 @@ const Register = () => {
                                                         <input
                                                             onChange={(event) => setName(event.target.value)}
                                                             type="text"
-                                                            className="bg-slate-200 dark:bg-zinc-800  text-white peer block min-h-[auto] w-full rounded border dark:border-zinc-700 border-stone-200 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                                            className="bg-slate-200 dark:bg-zinc-800  text-black dark:text-white peer block min-h-[auto] w-full rounded border dark:border-zinc-700 border-stone-200 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                                             id="exampleFormControlInput1"
                                                             placeholder="Name" />
                                                         <label
@@ -97,7 +97,7 @@ const Register = () => {
                                                         <input
                                                             onChange={(event) => setEmail(event.target.value)}
                                                             type="email"
-                                                            className="bg-slate-200 dark:bg-zinc-800  text-white peer block min-h-[auto] w-full rounded border dark:border-zinc-700 border-stone-200 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                                            className="bg-slate-200 dark:bg-zinc-800  text-black dark:text-white peer block min-h-[auto] w-full rounded border dark:border-zinc-700 border-stone-200 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                                             id="exampleFormControlInput1"
                                                             placeholder="Username" />
                                                         <label
@@ -110,7 +110,7 @@ const Register = () => {
                                                         <input
                                                             onChange={(event) => setPassword(event.target.value)}
                                                             type="password"
-                                                            className="bg-slate-200 dark:bg-zinc-800  text-white peer block min-h-[auto] w-full rounded border dark:border-zinc-700 border-stone-200 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                                            className="bg-slate-200 dark:bg-zinc-800  text-black dark:text-white peer block min-h-[auto] w-full rounded border dark:border-zinc-700 border-stone-200 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                                             id="exampleFormControlInput11"
                                                             placeholder="Password" />
                                                         <label
@@ -123,7 +123,7 @@ const Register = () => {
                                                         <input
                                                             onChange={(event) => setPhotoUrl(event.target.value)}
                                                             type="text"
-                                                            className="bg-slate-200 dark:bg-zinc-800  text-white peer block min-h-[auto] w-full rounded border dark:border-zinc-700 border-stone-200 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                                            className="bg-slate-200 dark:bg-zinc-800  text-black dark:text-white peer block min-h-[auto] w-full rounded border dark:border-zinc-700 border-stone-200 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                                             id="exampleFormControlInput1"
                                                             placeholder="Photo URL" />
                                                         <label
