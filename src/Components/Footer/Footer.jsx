@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <div className="dark:border-t dark:border-gray-800 duration-300">
             <footer
-                className="flex flex-col items-center bg-slate-100 dark:bg-[#090b11] text-center text-black dark:text-white duration-300">
+                className="flex flex-col items-center bg-[#f2f4f7] dark:bg-[#090b11] text-center text-black dark:text-white duration-300">
                 <div className='flex flex-col items-center justify-center py-5 gap-1'>
                     <div className='flex items-center gap-4 mr-5'>
                         <img className='w-[72px] mb-5' src={logo} alt="BD jobs logo" />
@@ -134,7 +134,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div
-                        className="w-full p-4 font-primary text-sm text-center text-black dark:text-white bg-[#e3e8ee] dark:bg-black duration-300">
+                        className="w-full p-4 font-primary text-sm text-center text-black dark:text-white bg-[#eaecee] dark:bg-black duration-300">
                         © 2023 Copyright:
                         <a className="text-black dark:text-white ml-2 duration-300" href="/">
                             BD JOBS
