@@ -5,7 +5,6 @@
 // import { PiCalendarCheckLight } from 'react-icons/pi';
 // import { BsCheck2Square } from 'react-icons/bs';
 import { useState } from "react";
-import './table.css';
 import { Tooltip } from "react-tooltip";
 
 const AllJobs = ({ allJobs }) => {
