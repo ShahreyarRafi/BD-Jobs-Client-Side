@@ -99,7 +99,7 @@ const Jobs = ({ allJobs }) => {
                 <div className="flex justify-center mt-4">
                     <button
                         onClick={toggleShowAllJobs}
-                        className="bg-[#19a4639f] hover:bg-[#19a463bb] font-primary font-semibold text- text-white md:px-12 px-7 md:py-4 py-2 rounded">
+                        className="bg-[#19a463bb] hover:bg-[#19a4639f] font-primary font-semibold text- text-white md:px-12 px-7 md:py-4 py-2 rounded">
                         {showAllJobs ? "Show Less" : "Show All"}
                     </button>
                 </div>

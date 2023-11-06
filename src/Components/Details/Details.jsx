@@ -11,7 +11,7 @@ import { BsCashCoin} from 'react-icons/bs';
 
 const Details = ({ jobDetails }) => {
     console.log(jobDetails);
-    const { _id, card_image, banner_image, company_logo, company_name, posted_by, posted_by_email, job_title, job_category, job_type, job_location, salary_range, job_description, job_posting_date, application_deadline, applicants_number } = jobDetails || {};
+    const { _id, banner_image, company_logo, company_name, posted_by, posted_by_email, job_title, job_category, job_type, job_location, salary_range, job_description, job_posting_date, application_deadline, applicants_number } = jobDetails || {};
     return (
 
         <div>
@@ -42,7 +42,7 @@ const Details = ({ jobDetails }) => {
                     <div>
                         <div className="flex items-center border-b border-gray-200 py-5 mb-7">
                             <img className="h-32" src={company_logo} alt="company logo" />
-                            <h3 className="text-3xl">{company_name}</h3>
+                            <h3 className="text-3xl font-medium">{company_name}</h3>
                         </div>
                         <div>
                             <p className="text-xl leading-9">{job_description}</p>

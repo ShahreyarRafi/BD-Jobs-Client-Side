@@ -86,7 +86,7 @@ const Navbar = () => {
                                     <NavLink
                                         to="/"
                                         className={({ isActive, isPending }) =>
-                                            isPending ? "pending" : isActive ? "text-[#91C96F]" : ""
+                                            isPending ? "pending" : isActive ? "text-[#19a463]" : ""
                                         }
                                     >
                                         HOME
@@ -96,7 +96,7 @@ const Navbar = () => {
                                     <NavLink
                                         to="/all-jobs"
                                         className={({ isActive, isPending }) =>
-                                            isPending ? "pending" : isActive ? "text-[#91C96F]" : ""
+                                            isPending ? "pending" : isActive ? "text-[#19a463]" : ""
                                         }
                                     >
                                         ALL JOBS
@@ -106,7 +106,7 @@ const Navbar = () => {
                                     <NavLink
                                         to="/blogs"
                                         className={({ isActive, isPending }) =>
-                                            isPending ? "pending" : isActive ? "text-[#91C96F]" : ""
+                                            isPending ? "pending" : isActive ? "text-[#19a463]" : ""
                                         }
                                     >
                                         BLOGS
@@ -125,7 +125,7 @@ const Navbar = () => {
                                                 <NavLink
                                                     to="/login"
                                                     className={({ isActive, isPending }) =>
-                                                        isPending ? "pending" : isActive ? "text-[#91C96F]" : ""
+                                                        isPending ? "pending" : isActive ? "text-[#19a463]" : ""
                                                     }
                                                 >
                                                     LOGIN
@@ -135,7 +135,7 @@ const Navbar = () => {
                                                 <NavLink
                                                     to="/register"
                                                     className={({ isActive, isPending }) =>
-                                                        isPending ? "pending" : isActive ? "text-[#91C96F]" : ""
+                                                        isPending ? "pending" : isActive ? "text-[#19a463]" : ""
                                                     }
                                                 >
                                                     REGISTER
@@ -151,7 +151,7 @@ const Navbar = () => {
                                             <NavLink
                                                 to="/add-a-job"
                                                 className={({ isActive, isPending }) =>
-                                                    isPending ? "pending" : isActive ? "text-[#91C96F]" : ""
+                                                    isPending ? "pending" : isActive ? "text-[#19a463]" : ""
                                                 }
                                             >
                                                 ADD A JOB
@@ -161,7 +161,7 @@ const Navbar = () => {
                                             <NavLink
                                                 to="/my-jobs"
                                                 className={({ isActive, isPending }) =>
-                                                    isPending ? "pending" : isActive ? "text-[#91C96F]" : ""
+                                                    isPending ? "pending" : isActive ? "text-[#19a463]" : ""
                                                 }
                                             >
                                                 MY JOBS
@@ -171,7 +171,7 @@ const Navbar = () => {
                                             <NavLink
                                                 to="/applied-jobs"
                                                 className={({ isActive, isPending }) =>
-                                                    isPending ? "pending" : isActive ? "text-[#91C96F]" : ""
+                                                    isPending ? "pending" : isActive ? "text-[#19a463]" : ""
                                                 }
                                             >
                                                 APPLIED JOBS

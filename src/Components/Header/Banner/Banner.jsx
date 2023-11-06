@@ -70,7 +70,7 @@ const Banner = () => {
             <div className="absolute flex justify-center pt-12 ">
                 <div className="flex flex-col items-center justify-center h-[88vh]">
                     <h2 className="xl:text-6xl md:text-4xl text-3xl font-primary font-bold text-white text-center md:leading-[1.2] drop-shadow-lg shadow-black mb-10 md:mb-14">
-                        Discover Your <span className='text-[#91C96F]'>Dream </span>Career with BD Jobs <br />
+                        Discover Your <span className='text-[#19a463]'>Dream </span>Career with BD Jobs <br />
                     </h2>
                     <div className='w-full flex items-center justify-center'>
                         <div className="relative" data-te-input-wrapper-init>
