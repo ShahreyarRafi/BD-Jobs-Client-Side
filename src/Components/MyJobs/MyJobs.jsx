@@ -2,14 +2,51 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../services/Firebase/AuthProvider';
 import { Link } from 'react-router-dom';
 import { Tooltip } from 'react-tooltip';
+import Swal from 'sweetalert2';
 
 const MyJobs = () => {
+    const [jobData, setJobData] = useState(null);
     const { user } = useContext(AuthContext);
 
-    // Initialize a state variable to store the fetched data
-    const [jobData, setJobData] = useState(null);
 
-    // Define a function to fetch the data
+    const handleDelete = (e, postedJobId) => {
+        e.preventDefault();
+        console.log(postedJobId);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/my-jobs/${postedJobId}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Item has been deleted.',
+                                'success'
+                            );
+                            const remaining = jobData.filter(item => item._id !== postedJobId);
+                            setJobData(remaining);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            }
+        });
+    };
+
+
+
     const fetchData = async () => {
         try {
             const response = await fetch(`http://localhost:5000/my-jobs/${user.email}`);
@@ -24,10 +61,9 @@ const MyJobs = () => {
         }
     };
 
-    // Use the useEffect hook to fetch data when the component mounts
     useEffect(() => {
         fetchData();
-    }, []); // The empty dependency array ensures it only runs once on mount
+    }, []);
 
     return (
         <div>
@@ -48,7 +84,8 @@ const MyJobs = () => {
                                                 <h5 className="w-full mr-10">Post Date</h5>
                                                 <h5 className="w-full mr-10">Deadline</h5>
                                                 <h5 className="w-full mr-10">salary_range</h5>
-                                                <h5 className="">Action</h5>
+                                                <h5 className="w-full ">Update</h5>
+                                                <h5 className="">Delete</h5>
                                                 <Tooltip id="all-job-page-job-title" />
                                             </div>
                                         </div>
@@ -63,8 +100,11 @@ const MyJobs = () => {
                                                     <h5 className="w-full mr-10">{job.job_posting_date}</h5>
                                                     <h5 className="w-full mr-10">{job.application_deadline}</h5>
                                                     <h5 className="w-full mr-10">{job.salary_range}</h5>
-                                                    <Link to={`/details/${job._id}`}>
-                                                        <h5 className="font-bold text-[#19a4639f] hover:text-[#19a463e8]  duration-300">Details</h5>
+                                                    <Link to={`/update-job/${job._id}`}>
+                                                        <h5 className="font-bold w-full mr-10 text-[#19a4639f] hover:text-[#19a463e8] duration-300">Update</h5>
+                                                    </Link>
+                                                    <Link onClick={(e) => handleDelete(e, job._id)}>
+                                                        <h5 className="font-bold  text-[#c42c2cc9] hover:text-[#eb4444e8]  duration-300">Delete</h5>
                                                     </Link>
                                                     <Tooltip id="all-job-page-job-title" />
                                                 </div>

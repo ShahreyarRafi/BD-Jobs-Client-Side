@@ -79,7 +79,6 @@ const AllJobs = ({ allJobs }) => {
                         </div>
                     </div>
                 </body>
-
             </div>
         </div>
     );
