@@ -13,6 +13,7 @@ import BlogsPage from "../Pages/BlogsPage/BlogsPage";
 import AddAJobPage from "../Pages/AddAJobPage/AddAJobPage";
 import MyJobsPage from "../Pages/MyJobsPage/MyJobsPage";
 import AppliedJobPage from "../Pages/AppliedJobsPage/AppliedJobPage";
+import DetailsPage from "../Pages/DetailsPage/DetailsPage";
 
 
 
@@ -79,6 +80,15 @@ const router = createBrowserRouter([
                         <AppliedJobPage></AppliedJobPage>
                     </PrivateRoute>
                 ),
+            },
+            {
+                path: 'details/:id',
+                element: (
+                    <PrivateRoute>
+                        <DetailsPage></DetailsPage>
+                    </PrivateRoute>
+                ),
+                loader: ({ params }) => fetch(`http://localhost:5000/jobs/${params.id}`)
             },
             {
                 path: 'cart',

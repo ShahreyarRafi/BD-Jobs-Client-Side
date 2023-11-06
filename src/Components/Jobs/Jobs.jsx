@@ -6,6 +6,7 @@ import { PiBriefcaseLight } from 'react-icons/pi';
 import { PiCalendarPlusLight } from 'react-icons/pi';
 import { PiCalendarCheckLight } from 'react-icons/pi';
 import { BsCheck2Square } from 'react-icons/bs';
+import { BsCashCoin } from 'react-icons/bs';
 
 
 let tabs = [
@@ -69,19 +70,19 @@ const Jobs = ({ allJobs }) => {
                                         <img className="h-10" src={job.company_logo} alt="" />
                                         <h1 className="mx-3 text-white font-semibold text-lg">{job.company_name}</h1>
                                     </div>
-                                    <div className="py-4 px-6 border-b-2 border-slate-100">
-                                        <h1 className="text-2xl font-bold mb-1 max-w-sm truncate flex items-center"> <span></span>{job.job_title}</h1>
-                                        <p className="my-2 mb-3 text-lg text-gray-700 line-clamp-2 ">{job.job_description}</p>
+                                    <div className="py-4 px-6 border-b-2 my-1 border-slate-100">
+                                        <h1 className="text-2xl font-bold mb-2 max-w-sm truncate flex items-center"> <span></span>{job.job_title}</h1>
+                                        <p className="my-2 mb-4 text-lg text-gray-700 line-clamp-2 ">{job.job_description}</p>
                                         <div className="bg-white w-full ">
                                             <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><IoPersonOutline /></span> <span className="font-medium mr-2">Posted by:</span> {job.posted_by}</h2>
                                             <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><PiBriefcaseLight /></span> <span className="font-medium mr-2">Job Category: </span> {job.job_category}</h2>
                                             <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><PiCalendarPlusLight /></span> <span className="font-medium mr-2"> Posting Date:</span> {job.job_posting_date}</h2>
                                             <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><PiCalendarCheckLight /></span> <span className="font-medium mr-2">Application Deadline:</span> {job.application_deadline}</h2>
-                                            <h2 className="text-base mb-5 truncate flex items-center"> <span className="mr-2"><BsCheck2Square /></span> <span className="font-medium mr-2">Job Applicants:</span> {job.applicants_number}</h2>
-                                            <h2 className="text-xl font-semibold truncate flex items-center">{job.salary_range}</h2>
+                                            <h2 className="text-base mb-4 truncate flex items-center"> <span className="mr-2"><BsCheck2Square /></span> <span className="font-medium mr-2">Job Applicants:</span> {job.applicants_number}</h2>
+                                            <h2 className="text-xl mb-1 font-semibold truncate flex items-center"><span className="mr-2 -mb-1 text-[#19a463]"><BsCashCoin /></span> {job.salary_range}</h2>
                                         </div>
                                     </div>
-                                    <Link >
+                                    <Link to={`/details/${job._id}`}>
                                         <button
                                             className='font-primary text-sm font-medium px-7 py-3 w-full bg-white hover:text-[#91C96F] duration-300 '>
                                             SHOW DETAILS

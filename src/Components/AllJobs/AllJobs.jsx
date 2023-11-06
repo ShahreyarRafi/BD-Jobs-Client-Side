@@ -5,6 +5,7 @@
 // import { PiCalendarCheckLight } from 'react-icons/pi';
 // import { BsCheck2Square } from 'react-icons/bs';
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 
 const AllJobs = ({ allJobs }) => {
@@ -53,7 +54,7 @@ const AllJobs = ({ allJobs }) => {
                                     <h5 className="w-full mr-10">Post Date</h5>
                                     <h5 className="w-full mr-10">Deadline</h5>
                                     <h5 className="w-full mr-10">salary_range</h5>
-                                    <h5 className="">Details</h5>
+                                    <h5 className="">Action</h5>
                                     <Tooltip id="all-job-page-job-title" />
                                 </div>
                             </div>
@@ -68,7 +69,9 @@ const AllJobs = ({ allJobs }) => {
                                         <h5 className="w-full mr-10">{job.job_posting_date}</h5>
                                         <h5 className="w-full mr-10">{job.application_deadline}</h5>
                                         <h5 className="w-full mr-10">{job.salary_range}</h5>
-                                        <h5 className="">Details</h5>
+                                        <Link to={`/details/${job._id}`}>
+                                            <h5 className="font-bold text-[#19a4639f] hover:text-[#19a463e8]  duration-300">Details</h5>
+                                        </Link>
                                         <Tooltip id="all-job-page-job-title" />
                                     </div>
                                 ))}
