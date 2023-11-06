@@ -5,15 +5,81 @@ import { CiLocationOn } from 'react-icons/ci';
 import { PiCalendarPlusLight } from 'react-icons/pi';
 import { PiCalendarCheckLight } from 'react-icons/pi';
 import { BsCheck2Square } from 'react-icons/bs';
-import { BsCashCoin} from 'react-icons/bs';
+import { BsCashCoin } from 'react-icons/bs';
+import { useContext } from 'react';
+import { AuthContext } from '../../services/Firebase/AuthProvider';
+import Swal from 'sweetalert2';
+
+const handleApply = () => {
+    const modal = document.getElementById('applyModal');
+    if (modal) {
+      modal.showModal();
+    }
+  };
+  
+
+const handleSubmit = (event, jobId) => {
+    event.preventDefault();
+
+    const form = event.target; // Access the form from the event object
+
+    const applicant_name = form.user_name.value;
+    const applicant_email = form.user_email.value;
+    const resume = form.resume.value;
+
+    const applicantData = {
+        applicant_name,
+        applicant_email,
+        resume,
+        job_id: jobId, 
+    };
+
+    if (!applicant_name || !applicant_email || !resume) {
+        Swal.fire({
+            title: 'Please fill in all fields!',
+            text: 'One or more fields are empty',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+        return;
+    } else {
+        // Send data to the server
+
+        fetch('http://localhost:5000/applied-jobs', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(applicantData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Applied!',
+                        text: 'You have applied successfully',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            });
+    }
+}
 
 
 
 const Details = ({ jobDetails }) => {
-    console.log(jobDetails);
     const { _id, banner_image, company_logo, company_name, posted_by, posted_by_email, job_title, job_category, job_type, job_location, salary_range, job_description, job_posting_date, application_deadline, applicants_number } = jobDetails || {};
-    return (
 
+    const { user } = useContext(AuthContext);
+
+    console.log(user);
+
+
+
+
+    return (
         <div>
             <div className="w-full relative bg-black">
                 <img className="object-cover overflow-hidden h-[30vh] w-full opacity-40" src={banner_image} alt='' />
@@ -62,6 +128,7 @@ const Details = ({ jobDetails }) => {
 
                             <div className='w-full'>
                                 <button
+                                    onClick={handleApply}
                                     className="bg-[#19a463] hover:bg-[#19a463bb] font-primary font-semibold text text-white px-7 md:px-12 py-2 md:py-3 mt-7 w-full rounded"
                                 >
                                     Apply For This Job
@@ -72,6 +139,71 @@ const Details = ({ jobDetails }) => {
                     </div>
                 </div>
             </div>
+
+
+            <dialog id="applyModal" className="modal modal-bottom sm:modal-middle font-primary">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg">To Apply:</h3>
+                    <p className="py-4">Enter your name, email and resume link</p>
+                    <form  onSubmit={(event) => handleSubmit(event, jobDetails._id, document.getElementById('applyModal').close())}>
+                        <div className=" mb-5">
+                            <div className="form-control mb-5">
+                                <label className="label">
+                                    <span className="text-black dark:text-slate-300 duration-300">Name</span>
+                                </label>
+                                <label className="rounded-lg">
+                                    <input
+                                        type="text"
+                                        name="user_name"
+                                        placeholder="Your Name"
+                                        defaultValue={user.displayName}
+                                        className="input input-bordered w-full dark:bg-zinc-800 bg-white duration-300"
+                                    />
+                                </label>
+                            </div>
+                            <div className="form-control ">
+                                <label className="label">
+                                    <span className="text-black dark:text-slate-300 duration-300">Email</span>
+                                </label>
+                                <label className="rounded-lg">
+                                    <input
+                                        type="text"
+                                        name="user_email"
+                                        placeholder="Your Email"
+                                        defaultValue={user.email}
+                                        className="input input-bordered w-full dark:bg-zinc-800 bg-white duration-300"
+                                    />
+                                </label>
+                            </div>
+                        </div>
+                        {/* resume row */}
+                        <div className="form-control mb-14">
+                            <label className="label">
+                                <span className="text-black dark-text-slate-300 duration-300">Your Resume</span>
+                            </label>
+                            <label className="rounded-lg">
+                                <textarea
+                                    name="resume"
+                                    placeholder="Drop your resume link here"
+                                    className="textarea input-bordered w-full h-40 dark-bg-zinc-800 bg-white duration-300"
+                                />
+                            </label>
+                        </div>
+                        <div className="modal-action flex justify-around">
+                            <input
+                                type="submit"
+                                value="SUBMIT"
+                                className="btn bg-[#19a463e8] hover:bg-[#19a4639f] text-white"
+                            />
+                            <form method="dialog">
+                                <button className="btn bg-[#eb4444e8] hover:bg-[#c42c2cc9] text-white" onClick={() => document.getElementById('applyModal').close()}>Cancel</button>
+                            </form>
+                        </div>
+                    </form>
+                </div>
+            </dialog>
+
+
         </div>
     );
 };
