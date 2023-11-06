@@ -1,46 +1,80 @@
 import { Link } from "react-router-dom";
-import cardTestImg from '../../assets/images/cardTest.png'
 import { IoPersonOutline } from 'react-icons/io5';
 import { PiBriefcaseLight } from 'react-icons/pi';
 import { PiCalendarPlusLight } from 'react-icons/pi';
 import { PiCalendarCheckLight } from 'react-icons/pi';
 import { BsCheck2Square } from 'react-icons/bs';
-
+import React, { useState } from "react";
+import './table.css';
 
 const AllJobs = ({ allJobs }) => {
-    console.log(allJobs);
+    const [searchValue, setSearchValue] = useState('');
+    const [filteredJobs, setFilteredJobs] = useState(allJobs);
+
+    const handleSearch = (event) => {
+        const query = event.target.value.toLowerCase();
+        const filtered = allJobs.filter((job) =>
+            job.job_title.toLowerCase().includes(query)
+        );
+        setFilteredJobs(filtered);
+        setSearchValue(query);
+    };
+
     return (
-        <div className="flex flex-col items-center justify-center py-10 bg-[#19a4630c] font-primary">
+        <div className="flex flex-col items-center justify-center py-10 bg-[#19a4630c] w-full font-primary">
             <h1 className="text-5xl font-bold mt-10 my-6"><span className="">Find The </span><span className="text-[#19a463]">Perfect </span>Job For You </h1>
-            <div className="font-primary max-w-[1700px] w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 py-10 px-10 mx-auto">
-                {allJobs.map((job) => (
-                    <div key={job._id}>
-                        <div className="w-full bg-white shadow-lg rounded-lg overflow-hidden my-1">
-                            <div className="flex items-center px-6 py-3 bg-[#6fb696]">
-                                <img className="h-10" src={job.company_logo} alt="" />
-                                <h1 className="mx-3 text-white font-semibold text-lg">{job.company_name}</h1>
-                            </div>
-                            <div className="py-4 px-6 border-b-2 border-slate-100">
-                                <h1 className="text-2xl font-bold mb-1 max-w-sm truncate flex items-center"> <span></span>{job.job_title}</h1>
-                                <p className="my-2 mb-3 text-lg text-gray-700 line-clamp-3">{job.job_description}</p>
-                                <div className="bg-white w-full ">
-                                    <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><IoPersonOutline /></span> <span className="font-medium mr-2">Posted by:</span> {job.posted_by}</h2>
-                                    <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><PiBriefcaseLight /></span> <span className="font-medium mr-2">Job Category: </span> {job.job_category}</h2>
-                                    <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><PiCalendarPlusLight /></span> <span className="font-medium mr-2"> Posting Date:</span> {job.job_posting_date}</h2>
-                                    <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><PiCalendarCheckLight /></span> <span className="font-medium mr-2">Application Deadline:</span> {job.application_deadline}</h2>
-                                    <h2 className="text-base mb-5 truncate flex items-center"> <span className="mr-2"><BsCheck2Square /></span> <span className="font-medium mr-2">Job Applicants:</span> {job.applicants_number}</h2>
-                                    <h2 className="text-xl font-semibold truncate flex items-center">{job.salary_range}</h2>
-                                </div>
-                            </div>
-                            <Link >
-                                <button
-                                    className='font-primary text-sm font-medium px-7 py-3 w-full bg-white hover:text-[#91C96F] duration-300 '>
-                                    SHOW DETAILS
-                                </button>
-                            </Link>
-                        </div>
+            <div className='w-full items-center flex justify-center'>
+                <div className="relative" data-te-input-wrapper-init>
+                    <input
+                        type="text"
+                        className="bg-slate-100 dark:bg-zinc-800 text-black dark:text-white peer block min-h-[auto] w-[40vw] md:px-12 px-7 md:py-4 py-2 rounded border dark:border-zinc-700 border-stone-200 bg-opacity-90 leading-[1.6] outline-none transition-all duration-300 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                        id="exampleFormControlInput1"
+                        placeholder="Search Here..."
+                        value={searchValue}
+                        onChange={handleSearch}
+                    />
+                    <label
+                        htmlFor="exampleFormControlInput1"
+                        className="text-lg md:text-xl pointer-events-none absolute left-3 bottom-[6px] md:bottom-4 mb-[2px] max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-400 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+                    >Search Here...
+                    </label>
+                </div>
+            </div>
+            <div className="font-primary max-w-[1700px] w-full py-10 px-10 mx-auto">
+                <body className="flex items-center justify-center">
+                    <div className="container">
+                        <table className="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
+                            <thead className="text-white">
+                                {filteredJobs.map((job) => (
+                                    <tr key={job._id} className="bg-teal-400 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+                                        <th className="p-3 text-left truncate">Posted By</th>
+                                        <th className="p-3 text-left truncate">Job Title</th>
+                                        <th className="p-3 text-left truncate">Company</th>
+                                        <th className="p-3 text-left truncate">Type</th>
+                                        <th className="p-3 text-left truncate">Job Posting Date</th>
+                                        <th className="p-3 text-left truncate">Application Deadline</th>
+                                        <th className="p-3 text-left truncate">Salary range</th>
+                                        <th className="p-3 text-left truncate" width="110px">Actions</th>
+                                    </tr>
+                                ))}
+                            </thead>
+                            <tbody className="flex-1 sm:flex-none">
+                                {filteredJobs.map((job) => (
+                                    <tr key={job._id} className="hover text-lg flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
+                                        <td className="border-grey-light border hover:bg-gray-100 p-3 truncate">{job.posted_by}</td>
+                                        <td className="border-grey-light border hover:bg-gray-100 p-3 truncate">{job.job_title}</td>
+                                        <td className="border-grey-light border hover:bg-gray-100 p-3 truncate">{job.company_name}</td>
+                                        <td className="border-grey-light border hover:bg-gray-100 p-3 truncate">{job.job_category}</td>
+                                        <td className="border-grey-light border hover:bg-gray-100 p-3 truncate">{job.job_posting_date}</td>
+                                        <td className="border-grey-light border hover:bg-gray-100 p-3 truncate">{job.application_deadline}</td>
+                                        <td className="border-grey-light border hover:bg-gray-100 p-3 truncate">{job.salary_range}</td>
+                                        <td className="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">Details</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
-                ))}
+                </body>
 
             </div>
         </div>
@@ -48,6 +82,163 @@ const AllJobs = ({ allJobs }) => {
 };
 
 export default AllJobs;
+
+
+
+// <table className="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
+//     <thead className="text-white">
+//         {filteredJobs.map((job) => (
+//             <tr key={job._id} className="bg-teal-400 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+//                 <th className="p-3 text-left truncate">Posted By</th>
+//                 <th className="p-3 text-left truncate">Job Title</th>
+//                 <th className="p-3 text-left truncate">Company</th>
+//                 <th className="p-3 text-left truncate">Type</th>
+//                 <th className="p-3 text-left truncate">Job Posting Date</th>
+//                 <th className="p-3 text-left truncate">Application Deadline</th>
+//                 <th className="p-3 text-left truncate">Salary range</th>
+//                 <th className="p-3 text-left truncate" width="110px">Actions</th>
+//             </tr>
+//         ))}
+//     </thead>
+//     <tbody className="flex-1 sm:flex-none">
+//         {filteredJobs.map((job) => (
+//             <tr key={job._id} className="hover text-lg flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
+//                 <td className="border-grey-light border hover:bg-gray-100 p-3 truncate">{job.posted_by}</td>
+//                 <td className="border-grey-light border hover:bg-gray-100 p-3 truncate">{job.job_title}</td>
+//                 <td className="border-grey-light border hover:bg-gray-100 p-3 truncate">{job.company_name}</td>
+//                 <td className="border-grey-light border hover:bg-gray-100 p-3 truncate">{job.job_category}</td>
+//                 <td className="border-grey-light border hover:bg-gray-100 p-3 truncate">{job.job_posting_date}</td>
+//                 <td className="border-grey-light border hover:bg-gray-100 p-3 truncate">{job.application_deadline}</td>
+//                 <td className="border-grey-light border hover:bg-gray-100 p-3 truncate">{job.salary_range}</td>
+//                 <td className="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">Details</td>
+//             </tr>
+//         ))}
+//     </tbody>
+// </table>
+
+
+{/* <table className="table ">
+                    <thead>
+                        <tr className="text-lg bg-[#19a4637e]">
+                            <th>Posted By</th>
+                            <th>Job Title</th>
+                            <th>Company</th>
+                            <th>Type</th>
+                            <th>Job Posting Date</th>
+                            <th>Application Deadline</th>
+                            <th>Salary range</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    {filteredJobs.map((job) => (
+                        <tbody key={job._id}>
+                            <tr className="hover text-lg">
+                                <td>{job.posted_by}</td>
+                                <td>{job.job_title}</td>
+                                <td>{job.company_name}</td>
+                                <td>{job.job_category}</td>
+                                <td>{job.job_posting_date}</td>
+                                <td>{job.application_deadline}</td>
+                                <td>{job.salary_range}</td>
+                                <td>Details</td>
+                            </tr>
+                        </tbody>
+                    ))}
+                </table> */}
+
+
+
+
+
+
+
+
+
+// import { Link } from "react-router-dom";
+// import { IoPersonOutline } from 'react-icons/io5';
+// import { PiBriefcaseLight } from 'react-icons/pi';
+// import { PiCalendarPlusLight } from 'react-icons/pi';
+// import { PiCalendarCheckLight } from 'react-icons/pi';
+// import { BsCheck2Square } from 'react-icons/bs';
+// import { useState } from "react";
+
+
+// const AllJobs = ({ allJobs }) => {
+//     const [searchValue, setSearchValue] = useState('');
+//     const [filteredJobs, setFilteredJobs] = useState(allJobs);
+
+//     // Event handler to update the filter state
+//     const handleSearch = (event) => {
+//         const query = event.target.value.toLowerCase();
+//         const filtered = allJobs.filter((job) =>
+//             job.job_title.toLowerCase().includes(query)
+//         );
+//         setFilteredJobs(filtered);
+//         setSearchValue(query);
+//     };
+//     return (
+//         <div className="flex flex-col items-center justify-center py-10 bg-[#19a4630c] font-primary">
+//             <h1 className="text-5xl font-bold mt-10 my-6"><span className="">Find The </span><span className="text-[#19a463]">Perfect </span>Job For You </h1>
+//             <div className='w-full items-center flex justify-center'>
+//                 <div className="relative" data-te-input-wrapper-init>
+//                     <input
+//                         type="text"
+//                         className="bg-slate-100 dark:bg-zinc-800 text-black dark:text-white peer block min-h-[auto] w-[40vw] md:px-12 px-7 md:py-4 py-2 rounded-l border dark:border-zinc-700 border-stone-200 bg-opacity-90 leading-[1.6] outline-none transition-all duration-300 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+//                         id="exampleFormControlInput1"
+//                         placeholder="Search Here..."
+//                         value={searchValue}
+//                         onChange={handleSearch}
+//                     />
+//                     <label
+//                         htmlFor="exampleFormControlInput1"
+//                         className="text-lg md:text-xl pointer-events-none absolute left-3 bottom-[6px] md:bottom-4 mb-[2px] max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-400 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+//                     >Search Here...
+//                     </label>
+//                 </div>
+//                 <div>
+//                     <button
+//                         className="bg-[#19a463bb] hover:bg-[#19a4639f] font-primary font-semibold text-xl text-white md:px-12 px-7 md:py-4 py-2 rounded-r"
+//                     >
+//                         Search
+//                     </button>
+//                 </div>
+//             </div>
+//             <div className="font-primary max-w-[1700px] w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 py-10 px-10 mx-auto">
+//                 {filteredJobs.map((job) => (
+//                     <div key={job._id}>
+//                         <div className="w-full bg-white shadow-lg rounded-lg overflow-hidden my-1">
+//                             <div className="flex items-center px-6 py-3 bg-[#6fb696]">
+//                                 <img className="h-10" src={job.company_logo} alt="" />
+//                                 <h1 className="mx-3 text-white font-semibold text-lg">{job.company_name}</h1>
+//                             </div>
+//                             <div className="py-4 px-6 border-b-2 border-slate-100">
+//                                 <h1 className="text-2xl font-bold mb-1 max-w-sm truncate flex items-center"> <span></span>{job.job_title}</h1>
+//                                 <p className="my-2 mb-3 text-lg text-gray-700 line-clamp-3">{job.job_description}</p>
+//                                 <div className="bg-white w-full ">
+//                                     <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><IoPersonOutline /></span> <span className="font-medium mr-2">Posted by:</span> {job.posted_by}</h2>
+//                                     <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><PiBriefcaseLight /></span> <span className="font-medium mr-2">Job Category: </span> {job.job_category}</h2>
+//                                     <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><PiCalendarPlusLight /></span> <span className="font-medium mr-2"> Posting Date:</span> {job.job_posting_date}</h2>
+//                                     <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><PiCalendarCheckLight /></span> <span className="font-medium mr-2">Application Deadline:</span> {job.application_deadline}</h2>
+//                                     <h2 className="text-base mb-5 truncate flex items-center"> <span className="mr-2"><BsCheck2Square /></span> <span className="font-medium mr-2">Job Applicants:</span> {job.applicants_number}</h2>
+//                                     <h2 className="text-xl font-semibold truncate flex items-center">{job.salary_range}</h2>
+//                                 </div>
+//                             </div>
+//                             <Link >
+//                                 <button
+//                                     className='font-primary text-sm font-medium px-7 py-3 w-full bg-white hover:text-[#91C96F] duration-300 '>
+//                                     SHOW DETAILS
+//                                 </button>
+//                             </Link>
+//                         </div>
+//                     </div>
+//                 ))}
+
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default AllJobs;
 
 
 {/* <div>
