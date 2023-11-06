@@ -21,6 +21,7 @@ const Navbar = () => {
 
     const { user, logout } = useContext(AuthContext);
 
+
     const handleLogout = () => {
         logout();
     }
@@ -159,7 +160,7 @@ const Navbar = () => {
                                         </a>
                                         <a className="nav-item px-1 xl:px-3 py-2 flex items-center text-sm xl:text-base uppercase font-semibold  text-black dark:text-white duration-300 hover:opacity-75">
                                             <NavLink
-                                                to="/my-jobs"
+                                                to={`/my-jobs`}
                                                 className={({ isActive, isPending }) =>
                                                     isPending ? "pending" : isActive ? "text-[#19a463]" : ""
                                                 }

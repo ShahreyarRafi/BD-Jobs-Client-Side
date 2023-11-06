@@ -74,6 +74,7 @@ const AddAJob = () => {
             return;
         } else {
             // Send data to the server
+            
             fetch('http://localhost:5000/jobs', {
                 method: 'POST',
                 headers: {

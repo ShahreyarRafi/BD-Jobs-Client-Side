@@ -17,10 +17,6 @@ import DetailsPage from "../Pages/DetailsPage/DetailsPage";
 
 
 
-
-
-
-
 const router = createBrowserRouter([
     {
         path: '/',
@@ -72,6 +68,7 @@ const router = createBrowserRouter([
                         <MyJobsPage></MyJobsPage>
                     </PrivateRoute>
                 ),
+                // loader: ({ params }) => fetch(`http://localhost:5000/userJobs/${params.email}`)
             },
             {
                 path: 'applied-jobs',
