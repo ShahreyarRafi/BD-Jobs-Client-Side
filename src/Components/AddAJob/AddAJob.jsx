@@ -14,9 +14,9 @@ const AddAJob = () => {
 
     const handleAddJob = event => {
         event.preventDefault();
-    
+
         const form = event.target;
-    
+
         const banner_image = form.banner_image.value;
         const company_logo = form.company_logo.value;
         const company_name = form.company_name.value;
@@ -30,7 +30,8 @@ const AddAJob = () => {
         const job_description = form.job_description.value;
         const job_posting_date = form.job_posting_date.value;
         const application_deadline = form.application_deadline.value;
-    
+        const applicants_number = form.applicants_number.value;
+
 
         const newJob = {
             banner_image,
@@ -46,9 +47,9 @@ const AddAJob = () => {
             job_description,
             job_posting_date,
             application_deadline,
-            applicants_number: 0 
+            applicants_number
         };
-    
+
         if (
             !banner_image ||
             !company_logo ||
@@ -94,7 +95,7 @@ const AddAJob = () => {
                 });
         }
     };
-    
+
 
     return (
         <div>
@@ -254,37 +255,54 @@ const AddAJob = () => {
                         </div>
                         {/* Job Posting Date and Application Deadline row */}
                         <div className="md:flex mb-5 md:mb-8">
-                            <div className="form-control md:w-1/2 mb-4 md:mb-0">
-                                <label className="label w-full">
-                                    <span className="text-black dark-text-slate-300 duration-300">Job Posting Date</span>
-                                </label>
-                                <label className="rounded-lg w-full input input-bordered flex items-center">
-                                    <DatePicker
-                                        selected={PostDate}
-                                        onChange={(date) => setPostDate(date)}
-                                        dateFormat="dd-MM-yyyy" // Format as you desire
-                                        placeholderText="Application Deadline (YYYY-MM-DD)"
-                                        name="job_posting_date"
-                                        readOnly
-                                        className="w-full text-gray-400 dark:bg-zinc-800 bg-white duration-300"
-                                    />
-                                </label>
+                            <div className='w-1/2 md:flex '>
+                                <div className="form-control  mb-4 md:mb-0">
+                                    <label className="label w-full">
+                                        <span className="text-black dark-text-slate-300 duration-300">Job Posting Date</span>
+                                    </label>
+                                    <label className="rounded-lg flex items-center input input-bordered w-full">
+                                        <DatePicker
+                                            selected={PostDate}
+                                            onChange={(date) => setPostDate(date)}
+                                            dateFormat="dd-MM-yyyy" // Format as you desire
+                                            placeholderText="Application Deadline (YYYY-MM-DD)"
+                                            name="job_posting_date"
+                                            readOnly
+                                            className="w-full  text-gray-400 dark:bg-zinc-800 bg-white duration-300"
+                                        />
+                                    </label>
+                                </div>
+                                <div className="form-control md:ml-4">
+                                    <label className="label">
+                                        <span className="text-black dark-text-slate-300 duration-300">Application Deadline</span>
+                                    </label>
+                                    <label className="rounded-lg flex items-center input input-bordered w-full">
+                                        <DatePicker
+                                            selected={DeadlineDate}
+                                            onChange={(date) => setDeadlineDate(date)}
+                                            dateFormat="dd-MM-yyyy" // Format as you desire
+                                            placeholderText="Application Deadline (YYYY-MM-DD)"
+                                            name="application_deadline"
+                                            className="w-full dark-bg-zinc-800 bg-white duration-300"
+                                        />
+                                    </label>
+                                </div>
                             </div>
                             <div className="form-control md:w-1/2 md:ml-4">
                                 <label className="label">
-                                    <span className="text-black dark-text-slate-300 duration-300">Application Deadline</span>
+                                    <span className="text-black dark-text-slate-300 duration-300">Job Applicants Number</span>
                                 </label>
-                                <label className="rounded-lg input input-bordered flex items-center">
-                                    <DatePicker
-                                        selected={DeadlineDate}
-                                        onChange={(date) => setDeadlineDate(date)}
-                                        dateFormat="dd-MM-yyyy" // Format as you desire
-                                        placeholderText="Application Deadline (YYYY-MM-DD)"
-                                        name="application_deadline"
-                                        className="w-full dark-bg-zinc-800 bg-white duration-300"
+                                <label className="rounded-lg">
+                                    <input
+                                        type="number"
+                                        name="applicants_number"
+                                        defaultValue='0'
+                                        placeholder="Job Applicants Number"
+                                        className="input input-bordered w-full dark-bg-zinc-800 bg-white duration-300"
                                     />
                                 </label>
                             </div>
+
                         </div>
 
                         {/* Job Description row */}
