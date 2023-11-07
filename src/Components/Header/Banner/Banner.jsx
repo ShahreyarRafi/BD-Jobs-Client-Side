@@ -67,11 +67,12 @@ const Banner = () => {
                     </div>
                 ))}
             </div>
-            <div className="absolute flex justify-center pt-12 ">
+            <div className="absolute flex justify-center lg:pt-12 ">
                 <div className="flex flex-col items-center justify-center h-[88vh]">
-                    <h2 className="xl:text-6xl md:text-4xl text-3xl font-primary font-bold text-white text-center md:leading-[1.2] drop-shadow-lg shadow-black mb-10 md:mb-14">
+                    <h2 className="xl:text-6xl md:text-4xl text-3xl font-primary font-bold text-white text-center md:leading-[1.2] drop-shadow-lg shadow-black mb-3 lg:mb-7">
                         Discover Your <span className='text-[#19a463]'>Dream </span>Career with BD Jobs <br />
                     </h2>
+                    <p className='text-gray-200 text-base lg:text-lg max-w-5xl mb-7 md:mb-14 px-10'>BDjobs: The prominent job portal in Bangladesh, renowned for its user-friendly platform, connecting job seekers with an extensive array of career opportunities and resources for professional growth.</p>
                     <div className='w-full flex items-center justify-center'>
                         <div className="relative" data-te-input-wrapper-init>
                             <input
