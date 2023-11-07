@@ -72,17 +72,38 @@ const handleSubmit = (event, jobId, userId) => {
             .then(data => {
                 console.log(data);
                 if (data.insertedId) {
-                    Swal.fire({
-                        title: 'Applied!',
-                        text: 'You have applied successfully',
-                        icon: 'success',
-                        confirmButtonText: 'OK'
-                    });
+                    fetch(`http://localhost:5000/job/${jobId}`, {
+                        method: 'PUT',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify({ $inc: { applicants_number: 1 } })
+                    })
+                        .then(response => response.json())
+                        .then(updateData => {
+                            console.log(updateData);
+                            if (updateData.modifiedCount > 0 ) {
+                                Swal.fire({
+                                    title: 'Applied!',
+                                    text: 'You have applied successfully',
+                                    icon: 'success',
+                                    confirmButtonText: 'OK'
+                                });
+                            } 
+                        });
                 }
+            })
+            .catch(error => {
+                console.error("Error submitting application:", error);
+                Swal.fire({
+                    title: 'Application Error',
+                    text: 'Failed to submit your application',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
             });
     }
-}
-
+};
 
 
 const Details = ({ jobDetails }) => {
