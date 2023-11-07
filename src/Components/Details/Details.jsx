@@ -20,18 +20,12 @@ function formatDateToYYYYMMDD(date) {
 }
 
 
-
-
-
-
-
 const handleApply = () => {
     const modal = document.getElementById('applyModal');
     if (modal) {
         modal.showModal();
     }
 };
-
 
 const handleSubmit = (event, jobId, userId) => {
     event.preventDefault();
@@ -82,14 +76,14 @@ const handleSubmit = (event, jobId, userId) => {
                         .then(response => response.json())
                         .then(updateData => {
                             console.log(updateData);
-                            if (updateData.modifiedCount > 0 ) {
+                            if (updateData.modifiedCount > 0) {
                                 Swal.fire({
                                     title: 'Applied!',
                                     text: 'You have applied successfully',
                                     icon: 'success',
                                     confirmButtonText: 'OK'
                                 });
-                            } 
+                            }
                         });
                 }
             })
@@ -107,7 +101,9 @@ const handleSubmit = (event, jobId, userId) => {
 
 
 const Details = ({ jobDetails }) => {
+
     const { _id, banner_image, company_logo, company_name, posted_by, posted_by_email, job_title, job_category, job_type, job_location, salary_range, job_description, job_posting_date, application_deadline, applicants_number } = jobDetails || {};
+    
 
     const { user } = useContext(AuthContext);
 

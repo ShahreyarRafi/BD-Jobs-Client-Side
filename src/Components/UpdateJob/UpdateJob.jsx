@@ -28,7 +28,7 @@ const UpdateJob = ({ job }) => {
         const updatedJob_description = form.job_description.value;
         const updatedJob_posting_date = form.job_posting_date.value;
         const updatedApplication_deadline = form.application_deadline.value;
-        const updatedApplicants_number = form.applicants_number.value;
+        const updatedApplicants_number = +form.applicants_number.value;
 
 
         const newJob = {

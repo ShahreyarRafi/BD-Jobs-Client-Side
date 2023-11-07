@@ -30,7 +30,7 @@ const AddAJob = () => {
         const job_description = form.job_description.value;
         const job_posting_date = form.job_posting_date.value;
         const application_deadline = form.application_deadline.value;
-        const applicants_number = form.applicants_number.value;
+        const applicants_number = +form.applicants_number.value;
 
 
         const newJob = {
@@ -297,7 +297,7 @@ const AddAJob = () => {
                                     <input
                                         type="number"
                                         name="applicants_number"
-                                        defaultValue='0'
+                                        defaultValue={0}
                                         placeholder="Job Applicants Number"
                                         className="input input-bordered w-full dark-bg-zinc-800 bg-white duration-300"
                                     />
