@@ -6,19 +6,34 @@ import { PiCalendarPlusLight } from 'react-icons/pi';
 import { PiCalendarCheckLight } from 'react-icons/pi';
 import { BsCheck2Square } from 'react-icons/bs';
 import { BsCashCoin } from 'react-icons/bs';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../services/Firebase/AuthProvider';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
+
+
+function formatDateToYYYYMMDD(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+
+
+
+
+
+
 
 const handleApply = () => {
     const modal = document.getElementById('applyModal');
     if (modal) {
-      modal.showModal();
+        modal.showModal();
     }
-  };
-  
+};
 
-const handleSubmit = (event, jobId) => {
+
+const handleSubmit = (event, jobId, userId) => {
     event.preventDefault();
 
     const form = event.target; // Access the form from the event object
@@ -31,7 +46,8 @@ const handleSubmit = (event, jobId) => {
         applicant_name,
         applicant_email,
         resume,
-        job_id: jobId, 
+        job_id: jobId,
+        user_id: userId,
     };
 
     if (!applicant_name || !applicant_email || !resume) {
@@ -74,10 +90,31 @@ const Details = ({ jobDetails }) => {
 
     const { user } = useContext(AuthContext);
 
-    console.log(user);
+    const [dateNow, setDateNow] = useState()
+
+    const [isOwner] = useState(user.email === posted_by_email);
 
 
+    console.log(isOwner);
 
+
+    useEffect(() => {
+        const currentDate = new Date();
+        const formattedDate = formatDateToYYYYMMDD(currentDate);
+        setDateNow(formattedDate);
+    }, []);
+
+    if (isOwner) {
+        console.log("owner");
+    } else {
+        if (application_deadline < dateNow) {
+            console.log('Application Deadline Is Over');
+        } else if (application_deadline > dateNow) {
+            console.log('You Can Apply For This job');
+        } else {
+            console.log('You Can Apply For This job');
+        }
+    }
 
     return (
         <div>
@@ -108,7 +145,20 @@ const Details = ({ jobDetails }) => {
                     <div>
                         <div className="flex items-center border-b border-gray-200 py-5 mb-7">
                             <img className="h-32" src={company_logo} alt="company logo" />
-                            <h3 className="text-3xl font-medium">{company_name}</h3>
+                            <div className='flex items-center justify-between w-full'>
+                                <h3 className="text-3xl font-medium">{company_name}</h3>
+                                {
+                                    isOwner && (
+                                        <Link to={`/update-job/${_id}`}>
+                                            <button
+                                                className="bg-[#19a463] hover:bg-[#19a463bb] font-primary font-semibold text-center text-white px-7 md:px-12 py-2 md:py-3 rounded"
+                                            >
+                                                Update This Job
+                                            </button>
+                                        </Link>
+                                    )
+                                }
+                            </div>
                         </div>
                         <div>
                             <p className="text-xl leading-9">{job_description}</p>
@@ -125,16 +175,26 @@ const Details = ({ jobDetails }) => {
                             <h2 className="text-base mb-3 truncate flex items-center"> <span className="mr-2"><PiCalendarCheckLight /></span> <span className="font-medium mr-2">Application Deadline:</span> {application_deadline}</h2>
                             <h2 className="text-base mb-4 truncate flex items-center"> <span className="mr-2"><BsCheck2Square /></span> <span className="font-medium mr-2">Job Applicants:</span> {applicants_number}</h2>
                             <h2 className="text-xl font-semibold truncate flex items-center"><span className="mr-2 -mb-1 text-[#19a463]"><BsCashCoin /></span> {salary_range}</h2>
-
                             <div className='w-full'>
-                                <button
-                                    onClick={handleApply}
-                                    className="bg-[#19a463] hover:bg-[#19a463bb] font-primary font-semibold text text-white px-7 md:px-12 py-2 md:py-3 mt-7 w-full rounded"
-                                >
-                                    Apply For This Job
-                                </button>
-                            </div>
+                                {!isOwner && (
+                                    application_deadline < dateNow ? (
+                                        <div
+                                            aria-disabled
+                                            className="bg-[#eb4444e8] font-primary font-semibold text-center text-white px-7 md:px-12 py-2 md:py-3 mt-7 w-full rounded"
+                                        >
+                                            Deadline Is Over
+                                        </div>
 
+                                    ) : (
+                                        <button
+                                            onClick={handleApply}
+                                            className="bg-[#19a463] hover:bg-[#19a463bb] font-primary font-semibold text-center text-white px-7 md:px-12 py-2 md:py-3 mt-7 w-full rounded"
+                                        >
+                                            Apply For This Job
+                                        </button>
+                                    )
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -145,7 +205,7 @@ const Details = ({ jobDetails }) => {
                 <div className="modal-box">
                     <h3 className="font-bold text-lg">To Apply:</h3>
                     <p className="py-4">Enter your name, email and resume link</p>
-                    <form  onSubmit={(event) => handleSubmit(event, jobDetails._id, document.getElementById('applyModal').close())}>
+                    <form onSubmit={(event) => handleSubmit(event, jobDetails._id, user.uid, document.getElementById('applyModal').close())}>
                         <div className=" mb-5">
                             <div className="form-control mb-5">
                                 <label className="label">
@@ -157,6 +217,7 @@ const Details = ({ jobDetails }) => {
                                         name="user_name"
                                         placeholder="Your Name"
                                         defaultValue={user.displayName}
+                                        readOnly
                                         className="input input-bordered w-full dark:bg-zinc-800 bg-white duration-300"
                                     />
                                 </label>
@@ -171,6 +232,7 @@ const Details = ({ jobDetails }) => {
                                         name="user_email"
                                         placeholder="Your Email"
                                         defaultValue={user.email}
+                                        readOnly
                                         className="input input-bordered w-full dark:bg-zinc-800 bg-white duration-300"
                                     />
                                 </label>

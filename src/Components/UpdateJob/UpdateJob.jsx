@@ -271,7 +271,7 @@ const UpdateJob = ({ job }) => {
                                         <DatePicker
                                             selected={PostDate}
                                             onChange={(date) => setPostDate(date)}
-                                            dateFormat="dd-MM-yyyy"
+                                            dateFormat="yyyy-MM-dd"
                                             placeholderText="Job Posting Date"
                                             name="job_posting_date"
                                             className="w-full text-gray-400 dark:bg-zinc-800 bg-white duration-300"
