@@ -65,7 +65,7 @@ const AllJobs = ({ allJobs }) => {
                                         <h5 className="w-full mr-10">{job.company_name}</h5>
                                         <h5 className="w-full mr-10">{job.posted_by}</h5>
                                         <h5 className="w-full mr-10 text-lg font-semibold line-clamp-2" data-tooltip-id="all-job-page-job-title" data-tooltip-content={job.job_title}>{job.job_title}</h5>
-                                        <h5 className="w-full mr-10">{job.job_category}</h5>
+                                        <h5 className="w-full mr-10">{job.job_type}</h5>
                                         <h5 className="w-full mr-10">{job.job_posting_date}</h5>
                                         <h5 className="w-full mr-10">{job.application_deadline}</h5>
                                         <h5 className="w-full mr-10">{job.salary_range}</h5>

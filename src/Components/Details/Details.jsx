@@ -27,7 +27,21 @@ const handleApply = () => {
     }
 };
 
-const handleSubmit = (event, jobId, userId) => {
+
+
+
+const handleSubmit = (
+    event,
+    userId,
+    _id,
+    company_logo,
+    company_name,
+    job_title,
+    job_category,
+    job_type,
+    job_location,
+    salary_range,
+) => {
     event.preventDefault();
 
     const form = event.target; // Access the form from the event object
@@ -40,8 +54,15 @@ const handleSubmit = (event, jobId, userId) => {
         applicant_name,
         applicant_email,
         resume,
-        job_id: jobId,
         user_id: userId,
+        job_id: _id,
+        company_logo,
+        company_name,
+        job_title,
+        job_category,
+        job_type,
+        job_location,
+        salary_range,
     };
 
     if (!applicant_name || !applicant_email || !resume) {
@@ -64,9 +85,8 @@ const handleSubmit = (event, jobId, userId) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.insertedId) {
-                    fetch(`http://localhost:5000/job/${jobId}`, {
+                    fetch(`http://localhost:5000/job/${_id}`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json'
@@ -103,7 +123,7 @@ const handleSubmit = (event, jobId, userId) => {
 const Details = ({ jobDetails }) => {
 
     const { _id, banner_image, company_logo, company_name, posted_by, posted_by_email, job_title, job_category, job_type, job_location, salary_range, job_description, job_posting_date, application_deadline, applicants_number } = jobDetails || {};
-    
+
 
     const { user } = useContext(AuthContext);
 
@@ -222,7 +242,7 @@ const Details = ({ jobDetails }) => {
                 <div className="modal-box">
                     <h3 className="font-bold text-lg">To Apply:</h3>
                     <p className="py-4">Enter your name, email and resume link</p>
-                    <form onSubmit={(event) => handleSubmit(event, jobDetails._id, user.uid, document.getElementById('applyModal').close())}>
+                    <form onSubmit={(event) => handleSubmit(event, user.uid, _id, company_logo, company_name, job_title, job_category, job_type, job_location, salary_range, document.getElementById('applyModal').close())}>
                         <div className=" mb-5">
                             <div className="form-control mb-5">
                                 <label className="label">

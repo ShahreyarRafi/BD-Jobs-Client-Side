@@ -27,7 +27,7 @@ const Jobs = ({ allJobs }) => {
     };
 
     // Calculate the number of jobs in the current tab
-    const jobsInCurrentTab = allJobs.filter(job => activeTab === "All" ? true : job.job_category === activeTab);
+    const jobsInCurrentTab = allJobs.filter(job => activeTab === "All" ? true : job.job_type === activeTab);
 
     return (
         <div className="flex flex-col items-center justify-center py-10 bg-[#19a4630c] font-primary">
