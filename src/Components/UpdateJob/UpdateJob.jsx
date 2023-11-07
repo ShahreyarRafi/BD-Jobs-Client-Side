@@ -7,8 +7,8 @@ import "react-datepicker/dist/react-datepicker.css";
 const UpdateJob = ({ job }) => {
     const { _id, banner_image, company_logo, company_name, posted_by, posted_by_email, job_title, job_category, job_type, job_location, salary_range, job_description, job_posting_date, application_deadline, applicants_number } = job || {};
 
-    const [PostDate, setPostDate] = useState(new Date());
-    const [DeadlineDate, setDeadlineDate] = useState(new Date());
+    const [PostDate, setPostDate] = useState(new Date(job_posting_date));
+    const [DeadlineDate, setDeadlineDate] = useState(new Date(application_deadline));
 
     const handleUpdateJob = event => {
         event.preventDefault();
@@ -286,7 +286,7 @@ const UpdateJob = ({ job }) => {
                                         <DatePicker
                                             selected={DeadlineDate}
                                             onChange={(date) => setDeadlineDate(date)}
-                                            dateFormat="dd-MM-yyyy"
+                                            dateFormat="yyyy-MM-dd"
                                             placeholderText="Application Deadline"
                                             name="application_deadline"
                                             className="w-full dark-bg-zinc-800 bg-white duration-300"
@@ -327,7 +327,7 @@ const UpdateJob = ({ job }) => {
                         </div>
                         <input
                             type="submit"
-                            value="Add Job"
+                            value="Update Job"
                             className="btn hover-bg-[#ffc362] w-full text-white text-lg bg-[#19a463] hover:bg-[#19a463bb]"
                         />
                     </form>
