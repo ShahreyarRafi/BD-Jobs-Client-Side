@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import UpdateJob from "../../Components/UpdateJob/UpdateJob";
+import { useEffect } from "react";
 
 const UpdatePage = () => {
 
