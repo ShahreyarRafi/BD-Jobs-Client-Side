@@ -18,7 +18,7 @@ const AppliedJobs = ({ appliedJobs }) => {
     useEffect(() => {
         setTimeout(() => {
             setLoading(false);
-        }, 1000); // You can adjust the delay time as needed
+        }, 1000); // adjust the delay time
     }, []);
 
     // Calculate the number of jobs in the current tab

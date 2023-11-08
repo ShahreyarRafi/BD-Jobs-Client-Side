@@ -7,15 +7,6 @@ const PrivateRoute = ({ children, to }) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
 
-    // if(!user){
-    //     return swal({
-    //         title: "Congratulations!",
-    //         text: "Login Was Successful!",
-    //         icon: "success",
-    //         button: "Okay",
-    //     });
-    // }
-
     if(loading){
         return <div className='h-[80vh] flex justify-center items-center'><span className="loading loading-spinner text-[#91C96F] loading-lg"></span></div>
     }
@@ -34,8 +25,6 @@ const PrivateRoute = ({ children, to }) => {
         return <Navigate to="/login" state={{ from: to || location.pathname }} replace />;
     }
 
-    
-    
 };
 
 export default PrivateRoute;
