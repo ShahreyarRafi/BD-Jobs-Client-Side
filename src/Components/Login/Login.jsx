@@ -4,6 +4,7 @@ import { Input, Ripple, initTE } from "tw-elements";
 import { AuthContext } from '../../services/Firebase/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
+import axios from 'axios';
 
 
 initTE({ Input, Ripple });
@@ -38,20 +39,34 @@ const Login = () => {
         if (email && password) {
             signIn(email, password)
                 .then(() => {
-                    const intendedDestination = location?.state?.from || '/';
-                    navigate(intendedDestination);
-                    swal({
-                        title: "Congratulations!",
-                        text: "Login Was Successful!",
-                        icon: "success",
-                        button: "Okay",
-                    });
+                    // Successful login
+                    // Send a request to your server to get the JWT
+                    axios.post('http://localhost:5000/jwt', { email }, { withCredentials: true })
+                        .then((res) => {
+                            console.log(res.data);
+                            if (res.data.success) {
+                                swal({
+                                    title: "Congratulations!",
+                                    text: "Login Was Successful!",
+                                    icon: "success",
+                                    button: "Okay",
+                                });
+                                const intendedDestination = location?.state?.from || '/';
+                                navigate(intendedDestination);
+                            }
+                        })
+                        .catch((error) => {
+                            console.error("Error during JWT generation:", error);
+                            setError(error.message);
+                        });
                 })
                 .catch((error) => {
+                    console.error("Error during sign-in:", error);
                     setError(error.message);
                 });
         }
     };
+
 
 
     return (

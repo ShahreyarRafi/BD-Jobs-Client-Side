@@ -42,9 +42,10 @@ const AppliedJobs = ({ appliedJobs }) => {
                                 <div className="flex items-center justify-center">
                                     <div className="container duration-300">
                                         <div className="w-full flex items-center justify-end px-1">
+                                            <h3 className="text-xl font-semibold text-black mr-2">Filter by category:</h3>
                                             <div className="">
                                                 <select
-                                                    className="relative font-primary font-bold rounded-full px-3 py-1.5 text-base border border-green-200 bg-[#c8e4d8] black outline-sky-400 transition focus-visible:outline-2"
+                                                    className="relative font-primary font-semibold rounded-full px-3 py-1.5 text-base border border-green-200 bg-[#c8e4d8] black outline-sky-400 transition focus-visible:outline-2"
                                                     value={activeTab}
                                                     onChange={(e) => {
                                                         setActiveTab(e.target.value);
@@ -96,10 +97,7 @@ const AppliedJobs = ({ appliedJobs }) => {
                     ) : (
                         <div className='h-[80vh] flex flex-col items-center justify-center text-black dark:text-white duration-300'>
                             <p className='text-2xl font-bold font-primary mb-5'>
-                                You haven't posted any jobs yet
-                            </p>
-                            <p className='text-lg font-medium font-primary'>
-                                To post a job go to add a job page and fill out all the information and press add job button
+                                You haven't applied for any jobs yet
                             </p>
                         </div>
                     )

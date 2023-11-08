@@ -2,17 +2,22 @@
 import { useContext, useEffect, useState } from 'react';
 import AppliedJobs from '../../Components/AppliedJobs/AppliedJobs';
 import { AuthContext } from '../../services/Firebase/AuthProvider';
+import axios from 'axios';
 
 const AppliedJobPage = () => {
     const { user } = useContext(AuthContext)
-    const [appliedJobs, SetAppliedJobs] = useState([]);
+    const [appliedJobs, SetAppliedJobs] = useState([null]);
 
-    const url = `http://localhost:5000/applied-jobs?uid=${user.uid}`
+    const url = `http://localhost:5000/applied-jobs?uid=${user.email}`
 
     useEffect( () => {
-        fetch(url)
-        .then(res => res.json())
-        .then(data => SetAppliedJobs(data))
+        axios.get(url, {withCredentials: true})
+        .then(res => {
+            SetAppliedJobs(res.data)
+        })
+        // fetch(url)
+        // .then(res => res.json())
+        // .then(data => SetAppliedJobs(data))
     }, [])
 
     return (
