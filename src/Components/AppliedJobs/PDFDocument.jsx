@@ -32,7 +32,7 @@ const PDFDocument = ({ filteredJobs }) => {
                 <Text style={styles.title}>Applied Jobs</Text>
 
                 <View style={styles.table}>
-                    <View style={styles.tableHeader} className="flex items-center justify-between font-semibold border border-gray-100 px-10 py-5">
+                    <View style={styles.tableHeader} >
                         <Text>Company Name</Text>
                         <Text>Job Title</Text>
                         <Text>Job Category</Text>
@@ -43,7 +43,7 @@ const PDFDocument = ({ filteredJobs }) => {
                     </View>
 
                     {filteredJobs.map((job) => (
-                        <View key={job._id} style={styles.tableData} className="flex flex-col xl:flex-row items-start xl:items-center justify-start xl:justify-between border border-gray-100 hover:bg-[#19a4630c] px-10 py-5 duration-300">
+                        <View key={job._id} style={styles.tableData}>
                             <Text>{job.company_name}</Text>
                             <Text>{job.job_title}</Text>
                             <Text>{job.job_category}</Text>

@@ -84,7 +84,7 @@ const AppliedJobs = ({ appliedJobs }) => {
                                                 className="bg-[#19a463] text-white text-sm font-primary font-semibold py-2 px-4 rounded-full shadow-md hover-bg-[#19a463]"
                                                 onClick={handleDownloadPDF}
                                             >
-                                                Generate PDF
+                                                Download Summary
                                             </button>
                                         </div>
                                         <div className="w-full bg-white rounded-2xl overflow-hidden sm:shadow-lg my-5 duration-300">

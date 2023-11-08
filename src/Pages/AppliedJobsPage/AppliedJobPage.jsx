@@ -8,6 +8,10 @@ const AppliedJobPage = () => {
     const { user } = useContext(AuthContext)
     const [appliedJobs, SetAppliedJobs] = useState([null]);
 
+    useEffect(() => {
+        document.title = "BD JOBS | APPLIED JOBS";
+    }, []);
+
 
     const url = `http://localhost:5000/applied-jobs?uid=${user.uid}`
 
