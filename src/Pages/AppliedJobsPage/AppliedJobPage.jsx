@@ -8,16 +8,17 @@ const AppliedJobPage = () => {
     const { user } = useContext(AuthContext)
     const [appliedJobs, SetAppliedJobs] = useState([null]);
 
-    const url = `http://localhost:5000/applied-jobs?uid=${user.email}`
+
+    const url = `http://localhost:5000/applied-jobs?uid=${user.uid}`
 
     useEffect( () => {
-        axios.get(url, {withCredentials: true})
-        .then(res => {
-            SetAppliedJobs(res.data)
-        })
-        // fetch(url)
-        // .then(res => res.json())
-        // .then(data => SetAppliedJobs(data))
+        // axios.get(url, {withCredentials: true})
+        // .then(res => {
+        //     SetAppliedJobs(res.data)
+        // })
+        fetch(url)
+        .then(res => res.json())
+        .then(data => SetAppliedJobs(data))
     }, [])
 
     return (
