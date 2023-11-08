@@ -11,7 +11,6 @@ const AddAJob = () => {
     const [DeadlineDate, setDeadlineDate] = useState(new Date());
 
     console.log(user);
-
     const handleAddJob = event => {
         event.preventDefault();
 
@@ -30,8 +29,7 @@ const AddAJob = () => {
         const job_description = form.job_description.value;
         const job_posting_date = form.job_posting_date.value;
         const application_deadline = form.application_deadline.value;
-        const applicants_number = +form.applicants_number.value;
-
+        const applicants_number = form.applicants_number.value;
 
         const newJob = {
             banner_image,
@@ -73,9 +71,7 @@ const AddAJob = () => {
             });
             return;
         } else {
-            // Send data to the server
-            
-            fetch('https://bd-jobs-server.vercel.app/jobs', {
+            fetch('https://bd-jobs-server.vercel.app/add-job-to-db', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -96,6 +92,40 @@ const AddAJob = () => {
                 });
         }
     };
+
+
+    //         fetch('https://bd-jobs-server.vercel.app/add-job', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify(newJob)
+    //         })
+    //             .then(response => {
+    //                 if (!response.ok) {
+    //                     throw new Error(`Network response was not ok (status: ${response.status})`);
+    //                 }
+    //                 return response; // Parse the response as JSON
+    //             })
+    //             .then(data => {
+    //                 console.log(data);
+    //                 if (data.insertedId) {
+    //                     Swal.fire({
+    //                         title: 'Success!',
+    //                         text: 'Job Added Successfully',
+    //                         icon: 'success',
+    //                         confirmButtonText: 'OK'
+    //                     });
+    //                 }
+    //             })
+    //             .catch(error => {
+    //                 console.error('Error:', error);
+    //                 // Handle errors here
+    //             });
+
+    //     }
+    // };
+
 
 
     return (

@@ -1,9 +1,11 @@
 import React from 'react';
+import blogCover from '../../assets/images/971.jpg'
 
 const Blogs = () => {
     return (
-        <div className="max-w-6xl mx-auto font-primary py-16 px-5">
-            <h1 className='text-4xl lg:text-5xl font-bold mb-7' id="understanding-access-tokens-and-refresh-tokens-in-react">Understanding Access Tokens and Refresh Tokens in React</h1>
+        <div className="container max-w-6xl mx-auto font-primary py-5 md:py-10 px-5">
+            <img className='h-96 w-full object-cover mb-10 rounded' src={blogCover} alt="Blog Cover Image" />
+            <h1 className='text-4xl lg:text-5xl font-bold mb-6' id="understanding-access-tokens-and-refresh-tokens-in-react">Understanding Access Tokens and Refresh Tokens in React</h1>
             <p className='text-lg leading-8'>When building applications with React, it&#39;s essential to understand the concepts of access tokens and refresh tokens. In this article, we&#39;ll explore what they are, how they work, and where to store them on the client-side.</p>
             <h2 className='text-3xl font-bold mb-4 mt-6' id="access-tokens-and-refresh-tokens">Access Tokens and Refresh Tokens</h2>
             <h3 className='text-xl font-bold mb-3' id="what-is-an-access-token-">What is an Access Token?</h3>
@@ -43,8 +45,8 @@ const Blogs = () => {
             <p className='text-lg leading-8'>To provide a code explanation, I would need more context about the specific code you&#39;d like me to explain. Please provide the code or describe the part of your React, Express.js, or Nest.js application that you&#39;d like to have explained, and I&#39;ll be happy to provide a detailed explanation.</p>
             <p className='text-lg leading-8'>It seems you&#39;ve shared code snippets from different parts of your React application, including routing, front-end components for displaying jobs, and some back-end code for handling data. Let&#39;s go through the code and briefly explain its functionality.</p>
             <h2 className='text-3xl font-bold mb-4 mt-6' id="react-router-configuration">React Router Configuration</h2>
-            <p className='text-lg leading-8'>You&#39;ve defined the routes for your React application using React Router. The <code>router</code> object defines various routes, components, and loaders for data retrieval. You have routes for your main pages, including home, registration, login, contact us, about us, all jobs, blogs, add a job, job update, my jobs, applied jobs, job details, and the cart page.</p>
-            <p className='text-lg leading-8'>You&#39;re using private routes for some pages, which means they are accessible only to authenticated users.</p>
+            <p className='text-lg leading-8 mb-3'>The React application employs React Router to establish a comprehensive set of routes. This router object outlines routes, components, and loaders for data retrieval. The primary pages, encompassing home, registration, login, contact us, about us, all jobs, blogs, add a job, job update, my jobs, applied jobs, job details, and the cart page, are systematically defined.</p>
+            <p className='text-lg leading-8'>Private routes are integrated for certain pages, restricting access exclusively to authenticated users. This approach ensures a secure and controlled navigation experience throughout the job finder website.</p>
             <h2 className='text-3xl font-bold mb-4 mt-6' id="back-end-code">Back-End Code</h2>
             <p className='text-lg leading-8'>The back-end code is implemented using Express.js and MongoDB to handle data. Key routes and functions include:</p>
             <ul>
