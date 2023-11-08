@@ -1,6 +1,9 @@
 import { Tooltip } from "react-tooltip";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Document, Page, Text, View, StyleSheet, pdf } from '@react-pdf/renderer';
+import PDFDocument from "./PDFDocument";
+
 
 let tabs = [
     { id: "All", label: "All Jobs" },
@@ -10,6 +13,8 @@ let tabs = [
     { id: "Hybrid", label: "Hybrid" },
 ];
 
+
+
 const AppliedJobs = ({ appliedJobs }) => {
     let [activeTab, setActiveTab] = useState(tabs[0].id);
     let [loading, setLoading] = useState(true); // Add loading state
@@ -18,8 +23,25 @@ const AppliedJobs = ({ appliedJobs }) => {
     useEffect(() => {
         setTimeout(() => {
             setLoading(false);
-        }, 1000); // adjust the delay time
+        }, 1000); // You can adjust the delay time as needed
     }, []);
+
+    const handleDownloadPDF = () => {
+        const filteredJobs = appliedJobs.filter((job) => activeTab === 'All' ? true : job.job_type === activeTab);
+        const PDFComponent = <PDFDocument filteredJobs={filteredJobs} />;
+        pdf(PDFComponent).toBlob().then((blob) => {
+            const fileURL = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.href = fileURL;
+            a.download = 'applied-jobs.pdf';
+            a.click();
+            a.remove();
+        });
+    };
+
+
 
     // Calculate the number of jobs in the current tab
     const filteredJobs = appliedJobs.filter(job => activeTab === "All" ? true : job.job_type === activeTab);
@@ -27,7 +49,7 @@ const AppliedJobs = ({ appliedJobs }) => {
     return (
         <div>
             <div className="">
-                {loading ? ( 
+                {loading ? (
                     <div className='h-[80vh] flex justify-center items-center'>
                         <span className="loading loading-spinner text-[#91C96F] loading-lg"></span>
                     </div>
@@ -41,7 +63,7 @@ const AppliedJobs = ({ appliedJobs }) => {
                                 </h1>
                                 <div className="flex items-center justify-center">
                                     <div className="container duration-300">
-                                        <div className="w-full flex items-center justify-end px-1">
+                                        <div className="w-full flex items-center justify-end px-1 gap-4">
                                             <h3 className="text-xl font-semibold text-black mr-2">Filter by category:</h3>
                                             <div className="">
                                                 <select
@@ -58,6 +80,12 @@ const AppliedJobs = ({ appliedJobs }) => {
                                                     ))}
                                                 </select>
                                             </div>
+                                            <button
+                                                className="bg-[#19a463] text-white text-sm font-primary font-semibold py-2 px-4 rounded-full shadow-md hover-bg-[#19a463]"
+                                                onClick={handleDownloadPDF}
+                                            >
+                                                Generate PDF
+                                            </button>
                                         </div>
                                         <div className="w-full bg-white rounded-2xl overflow-hidden sm:shadow-lg my-5 duration-300">
                                             <div className="hidden xl:block bg-[#19a4633a] duration-300">
@@ -68,7 +96,7 @@ const AppliedJobs = ({ appliedJobs }) => {
                                                     <h5 className="w-full mr-10">Job Category</h5>
                                                     <h5 className="w-full mr-10">Salary Range</h5>
                                                     <h5 className="w-full mr-10">Application Email</h5>
-                                                    <h5 className="w-full">Resume</h5>
+                                                    <h5 className="w-full mr-10">Resume</h5>
                                                 </div>
                                             </div>
                                             <div className="flex-1 sm:flex-none">
@@ -108,5 +136,4 @@ const AppliedJobs = ({ appliedJobs }) => {
 };
 
 export default AppliedJobs;
-
 
