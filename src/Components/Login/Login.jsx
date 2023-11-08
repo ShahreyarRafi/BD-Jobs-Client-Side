@@ -35,39 +35,6 @@ const Login = () => {
         }
     };
 
-    // const handleLogin = () => {
-    //     if (email && password) {
-    //         signIn(email, password)
-    //             .then(() => {
-    //                 // Successful login
-    //                 // Send a request to your server to get the JWT
-    //                 axios.post('https://bd-jobs-server.vercel.app/jwt')
-    //                     .then((res) => {
-    //                         console.log(res.data);
-    //                         if (res.data.success) {
-    //                             swal({
-    //                                 title: "Congratulations!",
-    //                                 text: "Login Was Successful!",
-    //                                 icon: "success",
-    //                                 button: "Okay",
-    //                             });
-    //                             const intendedDestination = location?.state?.from || '/';
-    //                             navigate(intendedDestination);
-    //                         }
-    //                     })
-    //                     .catch((error) => {
-    //                         console.error("Error during JWT generation:", error);
-    //                         setError(error.message);
-    //                     });
-    //             })
-    //             .catch((error) => {
-    //                 console.error("Error during sign-in:", error);
-    //                 setError(error.message);
-    //             });
-    //     }
-    // };
-
-
     const handleLogin = () => {
         if (email && password) {
             signIn(email, password)
