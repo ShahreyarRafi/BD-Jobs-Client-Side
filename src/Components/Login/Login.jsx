@@ -41,7 +41,7 @@ const Login = () => {
     //             .then(() => {
     //                 // Successful login
     //                 // Send a request to your server to get the JWT
-    //                 axios.post('http://localhost:5000/jwt')
+    //                 axios.post('https://bd-jobs-server.vercel.app/jwt')
     //                     .then((res) => {
     //                         console.log(res.data);
     //                         if (res.data.success) {

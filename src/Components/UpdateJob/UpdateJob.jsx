@@ -74,7 +74,7 @@ const UpdateJob = ({ job }) => {
         } else {
             // Send data to the server
 
-            fetch(`http://localhost:5000/jobs/${_id}`, {
+            fetch(`https://bd-jobs-server.vercel.app/jobs/${_id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

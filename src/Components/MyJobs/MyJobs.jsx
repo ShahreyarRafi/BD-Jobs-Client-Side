@@ -22,7 +22,7 @@ const MyJobs = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/my-jobs/${postedJobId}`, {
+                fetch(`https://bd-jobs-server.vercel.app/my-jobs/${postedJobId}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -49,7 +49,7 @@ const MyJobs = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/my-jobs/${user.email}`);
+            const response = await fetch(`https://bd-jobs-server.vercel.app/my-jobs/${user.email}`);
             if (response.ok) {
                 const data = await response.json();
                 setJobData(data);

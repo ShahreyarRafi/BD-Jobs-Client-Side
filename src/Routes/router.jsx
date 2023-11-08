@@ -27,7 +27,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/jobs'),
+                loader: () => fetch('https://bd-jobs-server.vercel.app/jobs'),
             },
             {
                 path: 'register',
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
             {
                 path: 'all-jobs',
                 element: <AllJobsPage></AllJobsPage>,
-                loader: () => fetch('http://localhost:5000/jobs'),
+                loader: () => fetch('https://bd-jobs-server.vercel.app/jobs'),
             },
             {
                 path: 'blogs',
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
                         <UpdatePage></UpdatePage>
                     </PrivateRoute>
                 ),
-                loader: ({ params }) => fetch(`http://localhost:5000/jobs/${params.id}`)
+                loader: ({ params }) => fetch(`https://bd-jobs-server.vercel.app/jobs/${params.id}`)
             },
             {
                 path: 'my-jobs',
@@ -94,18 +94,8 @@ const router = createBrowserRouter([
                         <DetailsPage></DetailsPage>
                     </PrivateRoute>
                 ),
-                loader: ({ params }) => fetch(`http://localhost:5000/jobs/${params.id}`)
+                loader: ({ params }) => fetch(`https://bd-jobs-server.vercel.app/jobs/${params.id}`)
             },
-            {
-                path: 'cart',
-                element: (
-                    <PrivateRoute>
-                        <CartPage></CartPage>
-                    </PrivateRoute>
-                ),
-                // loader: () => fetch('http://localhost:5000/cartItems'),
-            },
-
         ]
     }
 ])

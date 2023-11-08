@@ -76,7 +76,7 @@ const handleSubmit = (
     } else {
         // Send data to the server
 
-        fetch('http://localhost:5000/applied-jobs', {
+        fetch('https://bd-jobs-server.vercel.app/applied-jobs', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -86,7 +86,7 @@ const handleSubmit = (
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    fetch(`http://localhost:5000/job/${_id}`, {
+                    fetch(`https://bd-jobs-server.vercel.app/job/${_id}`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json'
