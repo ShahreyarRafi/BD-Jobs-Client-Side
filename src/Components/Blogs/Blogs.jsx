@@ -2,8 +2,8 @@ import React from 'react';
 
 const Blogs = () => {
     return (
-        <div className="max-w-6xl mx-auto font-primary py-16">
-            <h1 className='text-5xl font-bold mb-7' id="understanding-access-tokens-and-refresh-tokens-in-react">Understanding Access Tokens and Refresh Tokens in React</h1>
+        <div className="max-w-6xl mx-auto font-primary py-16 px-5">
+            <h1 className='text-4xl lg:text-5xl font-bold mb-7' id="understanding-access-tokens-and-refresh-tokens-in-react">Understanding Access Tokens and Refresh Tokens in React</h1>
             <p className='text-lg leading-8'>When building applications with React, it&#39;s essential to understand the concepts of access tokens and refresh tokens. In this article, we&#39;ll explore what they are, how they work, and where to store them on the client-side.</p>
             <h2 className='text-3xl font-bold mb-4 mt-6' id="access-tokens-and-refresh-tokens">Access Tokens and Refresh Tokens</h2>
             <h3 className='text-xl font-bold mb-3' id="what-is-an-access-token-">What is an Access Token?</h3>
@@ -33,13 +33,13 @@ const Blogs = () => {
                 </li>
             </ul>
             <p className='text-lg leading-8'>In conclusion, access tokens and refresh tokens are fundamental in securing user authentication and authorization in React applications. Understanding how they work and where to store them on the client-side is essential for building robust and secure applications.</p>
-            <h1 className='text-5xl font-bold mb-10 mt-14' id="exploring-express-js-and-nest-js">Exploring Express.js and Nest.js</h1>
+            <h1 className='text-4xl lg:text-5xl font-bold mb-10 mt-14' id="exploring-express-js-and-nest-js">Exploring Express.js and Nest.js</h1>
             <h2 className='text-3xl font-bold mb-4 mt-6' id="what-is-express-js-">What is Express.js?</h2>
             <p className='text-lg leading-8'>Express.js is a popular web application framework for Node.js. It simplifies the development of web applications by providing a set of powerful features and tools. Express.js is known for its simplicity, flexibility, and excellent middleware support, making it an ideal choice for building web servers and APIs in the Node.js ecosystem.</p>
             <h2 className='text-3xl font-bold mb-4 mt-6' id="what-is-nest-js-">What is Nest.js?</h2>
             <p className='text-lg leading-8'>Nest.js, also known as Nest, is a progressive Node.js framework for building efficient, scalable, and maintainable server-side applications. Nest.js draws inspiration from Angular, making it highly modular and easy to test. It uses TypeScript as its primary language, allowing developers to benefit from strong typing and tooling for improved code quality and maintainability.</p>
             <p className='text-lg leading-8'>Nest.js offers a comprehensive architecture and a range of features, such as dependency injection, middleware, and decorators, making it an excellent choice for building complex and scalable applications. It is particularly well-suited for developing RESTful APIs and real-time applications.</p>
-            <h1 className='text-5xl font-bold mb-10 mt-14' id="explaining-your-code">Explaining Your Code</h1>
+            <h1 className='text-4xl lg:text-5xl font-bold mb-10 mt-14' id="explaining-your-code">Explaining Your Code</h1>
             <p className='text-lg leading-8'>To provide a code explanation, I would need more context about the specific code you&#39;d like me to explain. Please provide the code or describe the part of your React, Express.js, or Nest.js application that you&#39;d like to have explained, and I&#39;ll be happy to provide a detailed explanation.</p>
             <p className='text-lg leading-8'>It seems you&#39;ve shared code snippets from different parts of your React application, including routing, front-end components for displaying jobs, and some back-end code for handling data. Let&#39;s go through the code and briefly explain its functionality.</p>
             <h2 className='text-3xl font-bold mb-4 mt-6' id="react-router-configuration">React Router Configuration</h2>
