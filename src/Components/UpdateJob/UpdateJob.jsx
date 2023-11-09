@@ -61,8 +61,7 @@ const UpdateJob = ({ job }) => {
             !updatedSalary_range ||
             !updatedJob_description ||
             !updatedJob_posting_date ||
-            !updatedApplication_deadline ||
-            !updatedApplicants_number
+            !updatedApplication_deadline 
         ) {
             Swal.fire({
                 title: 'Please fill in all fields!',

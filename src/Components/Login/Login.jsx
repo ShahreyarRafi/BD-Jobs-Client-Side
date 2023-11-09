@@ -35,24 +35,60 @@ const Login = () => {
         }
     };
 
+    // const handleLogin = () => {
+    //     if (email && password) {
+    //         signIn(email, password)
+    //             .then(() => {
+    //                 // const intendedDestination = location?.state?.from || '/';
+    //                 // navigate(intendedDestination);
+    //                 // swal({
+    //                 //     title: "Congratulations!",
+    //                 //     text: "Login Was Successful!",
+    //                 //     icon: "success",
+    //                 //     button: "Okay",
+    //                 // });
+
+    //                 const user = { email }
+    //                 axios.post('https://bd-jobs-server.vercel.app/api/jwt', user, {withCredentials: true} )
+    //                 .then(res => {
+    //                     console.log(res.data);
+    //                 })
+    //             })
+    //             .catch((error) => {
+    //                 setError(error.message);
+    //             });
+    //     }
+    // };
+
     const handleLogin = () => {
         if (email && password) {
             signIn(email, password)
                 .then(() => {
-                    const intendedDestination = location?.state?.from || '/';
-                    navigate(intendedDestination);
-                    swal({
-                        title: "Congratulations!",
-                        text: "Login Was Successful!",
-                        icon: "success",
-                        button: "Okay",
-                    });
+                    const user = { email };
+                    axios.post('https://bd-jobs-server.vercel.app/api/jwt', user, { withCredentials: true })
+                        .then(res => {
+                            if (res.data.success === true) {
+                                const intendedDestination = location?.state?.from || '/';
+                                navigate(intendedDestination);
+                                swal({
+                                    title: "Congratulations!",
+                                    text: "Login Was Successful!",
+                                    icon: "success",
+                                    button: "Okay",
+                                });
+                            }
+
+                        })
+                        .catch(error => {
+                            setError(error.message);
+                        });
                 })
-                .catch((error) => {
+                .catch(error => {
                     setError(error.message);
                 });
         }
     };
+
 
 
     return (
@@ -81,7 +117,7 @@ const Login = () => {
                                                     <div className="relative mb-3" data-te-input-wrapper-init>
                                                         <input
                                                             type="email"
-                                                            onChange={(event) => setEmail(event.target.value)}
+                                                            onChange={(event) => setEmail(event.target.value.toLowerCase())}
                                                             className="bg-slate-200 dark:bg-zinc-800 rounded text-black dark:text-white peer block min-h-[auto] w-full border border-stone-200 dark:border-zinc-700 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                                             id="exampleFormControlInput1"
                                                             placeholder="Email" />
@@ -154,7 +190,7 @@ const Login = () => {
                                                 backgroundSize: 'cover',
                                             }}
                                         >
-                                            <div className="px-4 py-6 text-white md:mx-6 md:p-12">
+                                            <div className="px-4 py-6  md:mx-6 md:p-12 text-white">
                                                 <h4 className="mb-6 text-xl font-semibold">
                                                     We are more than just a company
                                                 </h4>
