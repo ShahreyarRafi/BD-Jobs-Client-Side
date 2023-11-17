@@ -1,7 +1,5 @@
-import { Tooltip } from "react-tooltip";
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Document, Page, Text, View, StyleSheet, pdf } from '@react-pdf/renderer';
+import {  pdf } from '@react-pdf/renderer';
 import PDFDocument from "./PDFDocument";
 
 
@@ -23,7 +21,7 @@ const AppliedJobs = ({ appliedJobs }) => {
     useEffect(() => {
         setTimeout(() => {
             setLoading(false);
-        }, 1000); // You can adjust the delay time as needed
+        }, 1000); // adjust the delay time 
     }, []);
 
     const handleDownloadPDF = () => {
@@ -48,7 +46,7 @@ const AppliedJobs = ({ appliedJobs }) => {
 
     return (
         <div>
-            <div className="">
+            <div>
                 {loading ? (
                     <div className='h-[80vh] flex justify-center items-center'>
                         <span className="loading loading-spinner text-[#91C96F] loading-lg"></span>
@@ -56,7 +54,7 @@ const AppliedJobs = ({ appliedJobs }) => {
                 ) : (
                     appliedJobs.length > 0 ? (
                         <div>
-                            <div className="font-primary max-w-[1700px] w-full py-10 px-10 mx-auto duration-300">
+                            <div className="font-primary MAX-Q max-w-[1700px] w-full py-10 px-10 mx-auto duration-300">
                                 <h1 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-center mt-5 lg:mt-10 my-5 lg:my-10 px-10 duration-300">
                                     <span className="">Applied </span>
                                     <span className="text-[#19a463]">Jobs</span>

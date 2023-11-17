@@ -6,14 +6,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import axios from 'axios';
 
-
 initTE({ Input, Ripple });
+
 
 const Login = () => {
     const { googleSignIn, signIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -34,31 +33,6 @@ const Login = () => {
             setError(error.message);
         }
     };
-
-    // const handleLogin = () => {
-    //     if (email && password) {
-    //         signIn(email, password)
-    //             .then(() => {
-    //                 // const intendedDestination = location?.state?.from || '/';
-    //                 // navigate(intendedDestination);
-    //                 // swal({
-    //                 //     title: "Congratulations!",
-    //                 //     text: "Login Was Successful!",
-    //                 //     icon: "success",
-    //                 //     button: "Okay",
-    //                 // });
-
-    //                 const user = { email }
-    //                 axios.post('https://bd-jobs-server.vercel.app/api/jwt', user, {withCredentials: true} )
-    //                 .then(res => {
-    //                     console.log(res.data);
-    //                 })
-    //             })
-    //             .catch((error) => {
-    //                 setError(error.message);
-    //             });
-    //     }
-    // };
 
     const handleLogin = () => {
         if (email && password) {
@@ -88,7 +62,6 @@ const Login = () => {
                 });
         }
     };
-
 
 
     return (
@@ -186,11 +159,11 @@ const Login = () => {
                                         <div
                                             className="flex items-center lg:w-6/12 "
                                             style={{
-                                                background: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.ibb.co/rHck9hp/test1000px.png")',
+                                                background: 'linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("https://i.ibb.co/j4zn4JC/bd-jobs-login.png")',
                                                 backgroundSize: 'cover',
                                             }}
                                         >
-                                            <div className="px-4 py-6  md:mx-6 md:p-12 text-white">
+                                            <div className="px-4 py-6  md:mx-6 md:p-12 text-Black">
                                                 <h4 className="mb-6 text-xl font-semibold">
                                                     We are more than just a company
                                                 </h4>

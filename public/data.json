@@ -1,0 +1,45 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Smartphone X",
+        "price": 599.99,
+        "brand": "TechMaster",
+        "category": "Electronics",
+        "stock": 50
+      },
+      {
+        "id": 2,
+        "name": "Laptop Pro",
+        "price": 1299.99,
+        "brand": "TechGuru",
+        "category": "Computers",
+        "stock": 20
+      },
+      {
+        "id": 3,
+        "name": "Ultra HD Smart TV",
+        "price": 899.99,
+        "brand": "Visionary",
+        "category": "Electronics",
+        "stock": 30
+      },
+      {
+        "id": 4,
+        "name": "Fitness Tracker",
+        "price": 49.99,
+        "brand": "ActiveLife",
+        "category": "Fitness",
+        "stock": 100
+      },
+      {
+        "id": 5,
+        "name": "Designer Watch",
+        "price": 199.99,
+        "brand": "Elegance",
+        "category": "Fashion",
+        "stock": 15
+      }
+    ]
+  }
+  

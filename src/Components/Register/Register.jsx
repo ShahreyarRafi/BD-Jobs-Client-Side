@@ -49,11 +49,11 @@ const Register = () => {
                                         <div
                                             className="flex items-center rounded-b-none lg:w-6/12 lg:rounded-l-lg lg:rounded-bl-lg"
                                             style={{
-                                                background: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.ibb.co/rHck9hp/test1000px.png")',
+                                                background: 'linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("https://i.ibb.co/z8DwVYK/bd-jobs-reg.png")',
                                                 backgroundSize: 'cover',
                                             }}
                                         >
-                                            <div className="px-4 py-6 text-white md:mx-6 md:p-12">
+                                            <div className="px-4 py-6 text-black md:mx-6 md:p-12">
                                                 <h4 className="mb-6 text-xl font-semibold">
                                                     We are more than just a company!
                                                 </h4>

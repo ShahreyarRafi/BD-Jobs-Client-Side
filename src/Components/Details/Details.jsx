@@ -42,6 +42,7 @@ const handleSubmit = (
     job_location,
     salary_range,
 ) => {
+    
     event.preventDefault();
 
     const form = event.target; // Access the form from the event object
@@ -74,8 +75,8 @@ const handleSubmit = (
         });
         return;
     } else {
-        // Send data to the server
 
+        // Send data to the server
         fetch('https://bd-jobs-server.vercel.app/applied-jobs', {
             method: 'POST',
             headers: {

@@ -13,7 +13,7 @@ const AppliedJobPage = () => {
     }, []);
 
 
-    const url = `https://bd-jobs-server.vercel.app/applied-jobs?uid=${user.uid}`
+    const url = `https://bd-jobs-server.vercel.app/applied-jobs?email=${user.email}`
 
     useEffect( () => {
         // axios.get(url, {withCredentials: true})
