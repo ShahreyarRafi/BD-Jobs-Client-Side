@@ -8,7 +8,6 @@ const DetailsPage = () => {
         document.title = "BD JOBS | JOB DETAILS";
     }, []);
 
-
     const job = useLoaderData()
 
     return (

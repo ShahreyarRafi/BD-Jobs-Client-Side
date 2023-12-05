@@ -1,9 +1,4 @@
-// import { Link } from "react-router-dom";
-// import { IoPersonOutline } from 'react-icons/io5';
-// import { PiBriefcaseLight } from 'react-icons/pi';
-// import { PiCalendarPlusLight } from 'react-icons/pi';
-// import { PiCalendarCheckLight } from 'react-icons/pi';
-// import { BsCheck2Square } from 'react-icons/bs';
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
