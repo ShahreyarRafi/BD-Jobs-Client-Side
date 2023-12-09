@@ -1,6 +1,4 @@
-# BD JOBS Web Application
-
-## Live Link
+# BDJobs - Dynamic Job Management || [Live Site](https://a-11-62f53.web.app)
 
 Check out the live version of this project [here](https://a-11-62f53.web.app/).
 
